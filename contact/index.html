@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | EarthKey</title>
+    <meta name="description" content="お仕事のご依頼、コラボレーション、お問い合わせはこちらから。">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-primary-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary-light);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i> EarthKey
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../about/" class="nav-link">About</a></li>
+                    <li><a href="../gallery/" class="nav-link">Gallery</a></li>
+                    <li><a href="../works/" class="nav-link">Works</a></li>
+                    <li><a href="../blog/" class="nav-link">Blog</a></li>
+                    <li><a href="index.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="section-bg-gradient text-center" style="padding: 60px 0;">
+        <div class="container">
+            <h1>Contact</h1>
+            <p>制作依頼・コラボレーション・その他お問い合わせ</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="section-bg-white">
+        <div class="container">
+            <div class="grid-2">
+
+                <!-- Contact Form -->
+                <div>
+                    <h2 style="text-align: left;">Send a Message</h2>
+                    <p class="mb-8">
+                        以下のフォームよりお気軽にお問い合わせください。<br>
+                        通常3営業日以内に返信いたします。
+                    </p>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name" class="form-label">お名前</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="山田 太郎" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">メールアドレス</label>
+                            <input type="email" id="email" name="email" class="form-control"
+                                placeholder="example@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">件名</label>
+                            <select id="subject" name="subject" class="form-control">
+                                <option value="request">制作・執筆のご依頼</option>
+                                <option value="collab">コラボレーションについて</option>
+                                <option value="dao">DAO活動について</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">お問い合わせ内容</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="お問い合わせ内容をご記入ください"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">送信する</button>
+                    </form>
+                </div>
+
+                <!-- Other Contact Info -->
+                <div style="padding-left: 20px;">
+                    <div class="card digital-grid-bg" style="margin-bottom: 30px;">
+                        <h3><i class="fa-brands fa-line" style="color: #06C755;"></i> 公式LINE</h3>
+                        <p class="mb-4">
+                            LINEでもお問い合わせを受け付けています。<br>
+                            最新情報や限定コンテンツも配信中！
+                        </p>
+                        <a href="#" class="btn btn-primary" style="background-color: #06C755;">友だち追加</a>
+                    </div>
+
+                    <div class="card" style="margin-bottom: 30px;">
+                        <h3><i class="fa-brands fa-x-twitter"></i> DMで連絡</h3>
+                        <p class="mb-4">
+                            X (旧Twitter) のDMでもご連絡いただけます。<br>
+                            比較的レスポンスが早いです。
+                        </p>
+                        <a href="#" class="btn btn-outline"
+                            style="color: #0F172A; border-color: #0F172A;">@EarthKey_AI</a>
+                    </div>
+
+                    <div class="card" style="background: #F0FDF4; border: 1px dashed #10B981;">
+                        <h3>DAO Community</h3>
+                        <p class="mb-4">
+                            DAO病院プロジェクトやMedicalDAOの活動に興味がある方は、
+                            Discordコミュニティへご参加ください。
+                        </p>
+                        <a href="#" class="btn btn-outline">Discordに参加する</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 class="footer-title">EarthKey</h3>
+                    <p>AI Pharmacist × DAO × Creative<br>Digital Forest Studio</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Sitemap</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about/">About</a></li>
+                        <li><a href="../works/">Works</a></li>
+                        <li><a href="../blog/">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">お問い合わせフォーム</a></li>
+                        <li><a href="#">X (Twitter) DM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 EarthKey. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
