@@ -10,10 +10,12 @@
 </head>
 
 <body>
+  <div class="forest-bg">
+    <main class="page-content">
     <header class="site-header">
         <h1>アースキー | AI薬剤師 × DAO</h1>
         <nav class="main-nav">
-            <a href="index.html">Home</a>
+            <a href="https://earthkey-portfolio.vercel.app">Home</a>
             <a href="about.html">About</a>
             <a href="gallery/index.html">Gallery</a>
             <a href="works/index.html">Works</a>
@@ -22,7 +24,7 @@
         </nav>
     </header>
 
-    <main>
+    <div class="page-sections">
         <section class="hero-section">
             <h2>薬剤師・医療従事者のためのAI活用</h2>
             <p>医療 × AI × DAO を軸に、現場に役立つ情報を発信しています。</p>
@@ -105,10 +107,11 @@
             <h3 class="text-center mb-8">Gallery</h3>
             <div class="grid-2">
                 <div class="card text-center">
-                    <div
-                        style="height: 150px; background: #E2E8F0; border-radius: 8px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
-                        <span style="color: #94A3B8;">AI Illustration</span>
-                    </div>
+                    <a href="https://www.aipictors.com/users/EarthKey" target="_blank" rel="noopener noreferrer"
+                        style="display: block; margin-top: 0; border-radius: 8px; overflow: hidden; transition: opacity 0.3s ease;">
+                        <img src="./gallery/0XL-0-Sakuya (0).png" alt="AI Art サムネイル"
+                            style="width: 100%; height: auto; display: block; border-radius: 8px;">
+                    </a>
                     <h4>AI Art</h4>
                     <p class="character-desc">Stable Diffusionなどで生成したアート作品</p>
                 </div>
@@ -123,7 +126,7 @@
                 </div>
             </div>
             <div class="text-center" style="margin-top: 20px;">
-                <a href="gallery/index.html" style="color: #10B981; font-weight: bold;">ギャラリーを見る &rarr;</a>
+                <a href="https://www.aipictors.com/users/EarthKey" style="color: #10B981; font-weight: bold;">ギャラリーを見る &rarr;</a>
             </div>
         </section>
 
@@ -193,7 +196,7 @@
                 </div>
             </div>
         </section>
-    </main>
+    </div>
 
     <!-- Modal -->
     <div class="character-modal-backdrop" id="character-modal">
@@ -348,8 +351,32 @@ DAOってね、まるでみんなで未来の物語を書いていく世界み�
     </script>
 
     <footer class="footer">
-        <p>© EarthKey | AI Pharmacist × DAO</p>
+        <p><a href="https://earthkey-portfolio.vercel.app/">Home</a> | © EarthKey | AI Pharmacist × DAO</p>
     </footer>
+    </main>
+
+    <!-- 木の葉レイヤー（演出用） -->
+    <div class="leaf-layer" id="leaf-layer"></div>
+  </div>
+
+  <script>
+    // かんたんな「ランダム落ち葉」演出（小さな緑の丸）
+    (function () {
+      const leafLayer = document.getElementById('leaf-layer');
+      if (!leafLayer) return;
+
+      for (let i = 0; i < 20; i++) {
+        const leaf = document.createElement('div');
+        leaf.className = 'leaf';
+        // 横位置をランダムに
+        leaf.style.left = (Math.random() * 100) + 'vw';
+        // アニメーション開始タイミングと速度をランダムに
+        leaf.style.animationDelay = (Math.random() * 5) + 's';
+        leaf.style.animationDuration = (8 + Math.random() * 6) + 's';
+        leafLayer.appendChild(leaf);
+      }
+    })();
+  </script>
 </body>
 
 </html>

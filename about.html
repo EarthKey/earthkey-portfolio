@@ -9,10 +9,12 @@
 </head>
 
 <body>
+  <div class="forest-bg">
+    <div class="page-content">
     <header class="site-header">
         <h1>アースキー | AI薬剤師 × DAO</h1>
         <nav class="main-nav">
-            <a href="index.html">Home</a>
+            <a href="https://earthkey-portfolio.vercel.app">Home</a>
             <a href="about.html">About</a>
             <a href="gallery/index.html">Gallery</a>
             <a href="works/index.html">Works</a>
@@ -27,20 +29,78 @@
             <p>アースキーのプロフィールと活動について</p>
         </section>
 
-        <section class="section container">
-            <div class="card">
-                <h3>EarthKey (アースキー)</h3>
-                <p>
-                    現役の病院薬剤師でありながら、AIツール（ChatGPT, Stable Diffusion等）を駆使するクリエイター。<br>
-                    DAOコミュニティでの活動を通じて、新しい医療のカタチとクリエイティブを探求しています。
-                </p>
+        <section id="about" class="about-section">
+          <h2 class="about-title">About Me</h2>
+
+          <div class="about-inner">
+            <p>
+              はじめまして、アースキーです。<br>
+              現在は病院薬剤師として高齢者医療に関わりながら、
+              AIを活用した医療創作・学びの発信を行っています。
+            </p>
+
+            <!-- Picture：01（文中の挿絵） -->
+            <figure class="about-picture">
+              <img src="./assets/gallery/about1.png" alt="医療とAIをつなぐイメージ">
+              <figcaption>【Picture：01】医療とAIをつなぐ世界観の挿絵</figcaption>
+            </figure>
+
+            <p>
+              私が情報発信を始めた背景には、<strong>「医療従事者がもっと余裕を持って患者さんと向き合える未来を作りたい」</strong>
+              という思いがあります。<br>
+              AIはその手助けになる——そう確信し、Note・Podcast・Xを中心に、<br>
+              医療AI学び直しコミュニティとのつながりをテーマに発信しています。
+            </p>
+
+            <p>
+              また、NinjaDAOでの創作活動を通じて、AIイラスト、AI動画、キャラクター制作など<br>
+              生成AIを使ったクリエイティブに深くのめり込みました。<br>
+              私の趣味はフィットネス、ゲーム、そして生成AI。<br>
+              自分がワクワクできることを軸に、日々スキルを磨き続けています。
+            </p>
+
+            <!-- Picture：02（文末の挿絵） -->
+            <figure class="about-picture">
+              <img src="./assets/gallery/about2.png" alt="心活テーマのイメージ">
+              <figcaption>【Picture：02】心活（こころの活動）を象徴する挿絵</figcaption>
+            </figure>
+
+            <p>
+              AI、医療、創作、コミュニティ。<br>
+              それぞれを横断しながら、<br>
+              「あなたの学びと創作にそっと寄り添う存在」でありたい。<br>
+              それがアースキーとしての私のテーマです。
+            </p>
+
+            <div class="about-actions">
+              <a href="/gallery" class="about-button">🎨作品ギャラリーを見る</a>
+              <a href="https://x.com/EarthGigantea" target="_blank" class="about-button">📣 Xでの活動を見る</a>
             </div>
+          </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>© EarthKey | AI Pharmacist × DAO</p>
+        <p><a href="https://earthkey-portfolio.vercel.app/">Home</a> | © EarthKey | AI Pharmacist × DAO</p>
     </footer>
+    </div>
+    <div class="leaf-layer" id="leaf-layer"></div>
+  </div>
+
+  <script>
+    (function () {
+      const leafLayer = document.getElementById('leaf-layer');
+      if (!leafLayer) return;
+      for (let i = 0; i < 20; i++) {
+        const leaf = document.createElement('div');
+        leaf.className = 'leaf';
+        leaf.style.left = (Math.random() * 100) + 'vw';
+        leaf.style.animationDelay = (Math.random() * 5) + 's';
+        leaf.style.animationDuration = (8 + Math.random() * 6) + 's';
+        leafLayer.appendChild(leaf);
+      }
+    })();
+  </script>
 </body>
 
 </html>

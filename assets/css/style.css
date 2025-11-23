@@ -37,6 +37,9 @@ body {
     padding: 24px;
     text-align: center;
 }
+/* Footer links */
+.footer a { color: #ECFDF5; text-decoration: none; font-weight: 600; }
+.footer a:hover { text-decoration: underline; }
 
 /* Utilities */
 .container {
@@ -362,3 +365,24 @@ body {
     border-radius: 16px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
+
+/* Forest background + Leaves (shared with top page) */
+.forest-bg {  min-height: 100vh;  background: radial-gradient(circle at top, #d1fae5 0, #064e3b 60%, #022c22 100%);  position: relative;  overflow: hidden; }
+.page-content {  position: relative;  z-index: 10; }
+.leaf-layer {  position: fixed;  inset: 0;  pointer-events: none;  z-index: 5; }
+.leaf {  position: absolute;  top: -40px;  width: 16px;  height: 16px;  border-radius: 999px;  background: #bbf7d0;  opacity: 0.9;  box-shadow: 0 0 6px rgba(22, 163, 74, 0.5);  animation-name: leaf-fall;  animation-timing-function: linear;  animation-iteration-count: infinite; }
+@keyframes leaf-fall {  0% {    transform: translate3d(0, 0, 0) rotate(0deg);    opacity: 0;  }  10% {    opacity: 1;  }  100% {    transform: translate3d(-40px, 110vh, 0) rotate(180deg);    opacity: 0;  } }
+
+/* About page (user‑specified styles) */
+.about-section {  padding: 80px 24px;  background: #F0FDF4;  border-radius: 12px; }
+.about-title {  text-align: center;  font-size: 2rem;  color: #065F46;  margin-bottom: 32px; }
+.about-inner {  max-width: 760px;  margin: 0 auto;  line-height: 1.85;  color: #334155;  font-size: 1.05rem; }
+.about-inner p { margin: 0 0 1rem; }
+/* About inline picture */
+.about-picture {  margin: 32px 0;  text-align: center; }
+.about-picture img {  width: 100%;  max-width: 580px;  border-radius: 16px;  box-shadow: 0 8px 22px rgba(0,0,0,0.15); }
+.about-picture figcaption {  margin-top: 8px;  font-size: 0.9rem;  color: #475569; }
+/* About actions */
+.about-actions {  margin-top: 40px;  display: flex;  gap: 16px;  justify-content: center;  flex-wrap: wrap; }
+.about-button {  padding: 14px 24px;  background: linear-gradient(135deg, #10B981, #065F46);  color: #fff;  border-radius: 12px;  text-decoration: none;  font-size: 1rem;  transition: 0.2s; }
+.about-button:hover {  opacity: 0.85;  transform: translateY(-2px); }
