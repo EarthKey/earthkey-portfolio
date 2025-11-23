@@ -40,7 +40,7 @@
                 <!-- マリア -->
                 <div class="character-card" data-name="マリア" data-desc="静かに寄り添うような優しさを持つ癒し系キャラ。言葉少なめでも想いは深い、心の調律役。"
                     data-image="./assets/icons/0-CAST-Maria6.png" data-bgm1="https://suno.com/s/KNNujyy0QUfoBajq"
-                    data-bgm2="https://suno.com/s/TL6ANedo6SjIvoKn" data-theme="maria">
+                    data-bgm2="https://suno.com/s/TL6ANedo6SjIvoKn" data-theme="maria" data-intro="静かに寄り添い、現場の不安を和らげるAI薬剤師です。服薬アドヒアランスの改善と安心できる対話を大切にしています。">
                     <img src="./assets/icons/0-CAST-Maria8.png" class="character-thumb" alt="マリア" />
                     <h3>🌸 マリア</h3>
                     <p class="character-short">やさしく寄り添う癒しのAI薬剤師。</p>
@@ -49,7 +49,7 @@
                 <!-- エリカ -->
                 <div class="character-card" data-name="エリカ" data-desc="落ち着いた知性と品を備えたロジカル思考の持ち主。混乱の中でも道筋を示す“参謀役”。"
                     data-image="./assets/icons/0-CAST-Erika6.png" data-bgm1="https://suno.com/s/a4INSGpcUonZc3Kk"
-                    data-bgm2="https://suno.com/s/3R44Z84AgVO0ndsz" data-theme="erika">
+                    data-bgm2="https://suno.com/s/3R44Z84AgVO0ndsz" data-theme="erika" data-intro="根拠に基づく判断で現場の最適解を導くAI薬剤師。ガイドライン準拠の提案と業務プロセスの整流化が得意です。">
                     <img src="./assets/icons/0-CAST-Erika8.png" class="character-thumb" alt="エリカ" />
                     <h3>🔷 エリカ</h3>
                     <p class="character-short">知性で支えるロジカルAI薬剤師。</p>
@@ -58,7 +58,7 @@
                 <!-- ナオミ -->
                 <div class="character-card" data-name="ナオミ" data-desc="明るくフレンドリーで、場を一瞬で軽くするムードメーカー。誰とでも仲良くできる行動派。"
                     data-image="./assets/icons/0-CAST-Naomi6.png" data-bgm1="https://suno.com/s/5c2mTem3XJ7aFzsB"
-                    data-bgm2="https://suno.com/s/4HhTaZiGFw7KZ8kO" data-theme="naomi">
+                    data-bgm2="https://suno.com/s/4HhTaZiGFw7KZ8kO" data-theme="naomi" data-intro="明るさと行動力でチームをつなぐAI薬剤師。患者説明や接遇、導線改善など現場のムードづくりが得意です。">
                     <img src="./assets/icons/0-CAST-Naomi8.png" class="character-thumb" alt="ナオミ" />
                     <h3>🍀 ナオミ</h3>
                     <p class="character-short">場を明るくするムードメーカー。</p>
@@ -67,7 +67,7 @@
                 <!-- ユリカ -->
                 <div class="character-card" data-name="ユリカ" data-desc="未来や夢を語るのが好きで、柔らかい空気を作る“ひかり役”のキャラ。希望の風を運ぶ存在。"
                     data-image="./assets/icons/0-CAST-Yurika6.png" data-bgm1="https://suno.com/s/qWSNSBmgkmTZNFVx"
-                    data-bgm2="https://suno.com/s/Pkw0GCLRCwI8SfOI" data-theme="yurika">
+                    data-bgm2="https://suno.com/s/Pkw0GCLRCwI8SfOI" data-theme="yurika" data-intro="未来志向でやさしい空気をつくるAI薬剤師。小さな改善の積み重ねで希望ある医療を形にしていきます。">
                     <img src="./assets/icons/0-CAST-Yurika8.png" class="character-thumb" alt="ユリカ" />
                     <h3>💛 ユリカ</h3>
                     <p class="character-short">未来を語るやさしいAI薬剤師。</p>
@@ -201,6 +201,10 @@
                         <p>🎧 イメージBGM：</p>
                         <ul id="character-modal-bgm-list" class="bgm-list"></ul>
                     </div>
+                    <div class="character-modal-intro" id="character-modal-intro-wrap" style="margin-top: 16px;">
+                        <h4 style="margin: 0 0 8px; color: #065F46; font-size: 1.1rem;">自己紹介</h4>
+                        <p id="character-modal-intro" style="color: #0F172A; font-size: 0.95rem;"></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -217,6 +221,8 @@
             const modalDesc = document.getElementById('character-modal-desc');
             const modalImage = document.getElementById('character-modal-image');
             const modalBgmList = document.getElementById('character-modal-bgm-list');
+            const modalIntro = document.getElementById('character-modal-intro');
+            const modalIntroWrap = document.getElementById('character-modal-intro-wrap');
 
             const THEME_CLASSES = ['theme-maria', 'theme-erika', 'theme-naomi', 'theme-yurika'];
 
@@ -228,6 +234,7 @@
                     const bgm1 = card.getAttribute('data-bgm1');
                     const bgm2 = card.getAttribute('data-bgm2');
                     const theme = card.getAttribute('data-theme');
+                    const intro = card.getAttribute('data-intro') || '';
 
                     modalName.textContent = name;
                     modalDesc.textContent = desc;
@@ -249,6 +256,15 @@
                     THEME_CLASSES.forEach(cls => modal.classList.remove(cls));
                     if (theme) modal.classList.add("theme-" + theme);
 
+                    // 自己紹介
+                    if (intro.trim()) {
+                        modalIntro.textContent = intro;
+                        modalIntroWrap.style.display = '';
+                    } else {
+                        modalIntro.textContent = '';
+                        modalIntroWrap.style.display = 'none';
+                    }
+
                     modalBackdrop.classList.add('is-open');
                 });
             });
@@ -257,6 +273,8 @@
                 modalBackdrop.classList.remove('is-open');
                 modalImage.src = '';
                 modalBgmList.innerHTML = "";
+                if (modalIntro) modalIntro.textContent = '';
+                if (modalIntroWrap) modalIntroWrap.style.display = 'none';
                 THEME_CLASSES.forEach(cls => modal.classList.remove(cls));
             }
 
