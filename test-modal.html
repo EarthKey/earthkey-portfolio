@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Test</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            padding: 50px;
+        }
+
+        .test-info {
+            background: #FEF3C7;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-info">
+        <h2>モーダルテスト</h2>
+        <p>下のカードをクリックしてモーダルが開くか確認してください。</p>
+        <p>開発者ツール（F12）のConsoleタブでエラーがないか確認してください。</p>
+    </div>
+
+    <div class="character-grid" style="max-width: 800px;">
+        <!-- マリア -->
+        <div class="character-card" data-name="マリア" data-desc="静かに寄り添うような優しさを持つ癒し系キャラ。"
+            data-image="./assets/icons/0-CAST-Maria6.png" data-bgm1="https://suno.com/s/KNNujyy0QUfoBajq"
+            data-bgm2="https://suno.com/s/TL6ANedo6SjIvoKn" data-theme="maria" data-intro="静かに寄り添い、現場の不安を和らげるAI薬剤師です。">
+            <img src="./assets/icons/0-CAST-Maria8.png" class="character-thumb" alt="マリア">
+            <h3>🌸 マリア</h3>
+            <p class="character-short">やさしく寄り添う癒しのAI薬剤師。</p>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="character-modal-backdrop" id="character-modal">
+        <div class="character-modal">
+            <button class="character-modal-close" id="character-modal-close" aria-label="閉じる">
+                ✕
+            </button>
+
+            <div class="character-modal-body">
+                <div class="character-modal-image-wrap">
+                    <img id="character-modal-image" src="" alt="">
+                </div>
+                <div class="character-modal-content">
+                    <h3 id="character-modal-name"></h3>
+                    <p id="character-modal-desc"></p>
+
+                    <div class="character-modal-bgm">
+                        <p>🎧 イメージBGM：</p>
+                        <ul id="character-modal-bgm-list" class="bgm-list"></ul>
+                    </div>
+                    <div class="character-modal-intro" id="character-modal-intro-wrap" style="margin-top: 16px;">
+                        <h4 style="margin: 0 0 8px; color: #065F46; font-size: 1.1rem;">自己紹介</h4>
+                        <p id="character-modal-intro"
+                            style="color: #0F172A; font-size: 0.95rem; white-space: pre-line;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('Script started');
+
+        (function () {
+            const cards = document.querySelectorAll('.character-card');
+            console.log('Found cards:', cards.length);
+
+            const modalBackdrop = document.getElementById('character-modal');
+            console.log('Modal backdrop:', modalBackdrop);
+
+            const modal = modalBackdrop.querySelector('.character-modal');
+            console.log('Modal:', modal);
+
+            const closeBtn = document.getElementById('character-modal-close');
+            const modalName = document.getElementById('character-modal-name');
+            const modalDesc = document.getElementById('character-modal-desc');
+            const modalImage = document.getElementById('character-modal-image');
+            const modalBgmList = document.getElementById('character-modal-bgm-list');
+            const modalIntro = document.getElementById('character-modal-intro');
+            const modalIntroWrap = document.getElementById('character-modal-intro-wrap');
+
+            const THEME_CLASSES = ['theme-maria', 'theme-erika', 'theme-naomi', 'theme-yurika'];
+            const INTRO_MAP = {
+                maria: `こんにちは、マリアです。
+読書って、心の中に静かな灯りがともる感じがしませんか？
+私は物語の余白にあるやさしさが好きで
+あなたの気持ちにも、そっと寄り添えたら嬉しいです。`
+            };
+
+            cards.forEach(card => {
+                console.log('Adding click listener to card');
+                card.addEventListener('click', () => {
+                    console.log('Card clicked!');
+                    const name = card.getAttribute('data-name');
+                    const desc = card.getAttribute('data-desc');
+                    const image = card.getAttribute('data-image');
+                    const bgm1 = card.getAttribute('data-bgm1');
+                    const bgm2 = card.getAttribute('data-bgm2');
+                    const theme = card.getAttribute('data-theme');
+                    const intro = card.getAttribute('data-intro') || '';
+                    const resolvedIntro = INTRO_MAP[theme] || intro;
+
+                    console.log('Data:', { name, desc, image, theme });
+
+                    modalName.textContent = name;
+                    modalDesc.textContent = desc;
+                    modalImage.src = image;
+                    modalImage.alt = `${name} の全身イラスト`;
+
+                    // BGMリンク生成
+                    modalBgmList.innerHTML = "";
+                    [bgm1, bgm2].forEach((url, index) => {
+                        if (url) {
+                            const li = document.createElement("li");
+                            li.innerHTML = `<a href="${url}" target="_blank" rel="noopener noreferrer">曲${index + 1}を開く</a>`;
+                            modalBgmList.appendChild(li);
+                        }
+                    });
+
+                    // テーマ切り替え
+                    THEME_CLASSES.forEach(cls => modal.classList.remove(cls));
+                    if (theme) modal.classList.add("theme-" + theme);
+
+                    // 自己紹介
+                    if (resolvedIntro.trim()) {
+                        modalIntro.textContent = resolvedIntro;
+                        modalIntroWrap.style.display = '';
+                    } else {
+                        modalIntro.textContent = '';
+                        modalIntroWrap.style.display = 'none';
+                    }
+
+                    console.log('Opening modal...');
+                    modalBackdrop.classList.add('is-open');
+                    console.log('Modal classes:', modalBackdrop.classList);
+                });
+            });
+
+            function closeModal() {
+                console.log('Closing modal');
+                modalBackdrop.classList.remove('is-open');
+                modalImage.src = '';
+                modalBgmList.innerHTML = "";
+                if (modalIntro) modalIntro.textContent = '';
+                if (modalIntroWrap) modalIntroWrap.style.display = 'none';
+                THEME_CLASSES.forEach(cls => modal.classList.remove(cls));
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modalBackdrop.addEventListener('click', e => {
+                if (e.target === modalBackdrop) closeModal();
+            });
+
+            window.addEventListener('keydown', e => {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            console.log('Script setup complete');
+        })();
+    </script>
+</body>
+
+</html>
