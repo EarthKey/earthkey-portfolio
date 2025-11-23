@@ -2,215 +2,171 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EarthKey | AI薬剤師 × DAO × Creative</title>
-    <meta name="description" content="AI薬剤師アースキーのポートフォリオ。医療×AI×DAOで現場DXを推進。">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>アースキー / AI薬剤師 × DAO</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fa-solid fa-leaf"></i> EarthKey
-            </a>
-            <button class="mobile-menu-btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
-                    <li><a href="about/" class="nav-link">About</a></li>
-                    <li><a href="gallery/" class="nav-link">Gallery</a></li>
-                    <li><a href="works/" class="nav-link">Works</a></li>
-                    <li><a href="blog/" class="nav-link">Blog</a></li>
-                    <li><a href="contact/" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header class="site-header">
+        <h1>アースキー | AI薬剤師 × DAO</h1>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallery/index.html">Gallery</a>
+            <a href="works/index.html">Works</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="contact/index.html">Contact</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero section-bg-gradient">
-        <div class="container">
-            <div class="grid-2 flex-center">
-                <div class="hero-content">
-                    <h1 class="mb-4">医療 × AI × 現場DX<br>未来を創るAI薬剤師</h1>
-                    <p class="mb-8" style="font-size: 1.1rem;">
-                        薬剤師としての臨床経験と、最先端の生成AI技術を融合。<br>
-                        DAOコミュニティでの活動を通じて、新しい医療のカタチとクリエイティブを探求しています。
-                    </p>
-                    <div class="hero-btns">
-                        <a href="#contact" class="btn btn-primary">お問い合わせ</a>
-                        <a href="about/" class="btn btn-outline" style="margin-left: 10px;">もっと詳しく</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <!-- Placeholder for Hero Image -->
-                    <div class="card-image"
-                        style="height: 400px; background: rgba(255,255,255,0.5); border: 2px dashed #10B981;">
-                        <div class="text-center">
-                            <i class="fa-solid fa-robot fa-3x mb-4" style="color: #065F46;"></i>
-                            <p>AI Pharmacist & Characters<br>(Image Placeholder)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <main>
+        <section class="hero-section">
+            <h2>薬剤師・医療従事者のためのAI活用</h2>
+            <p>医療 × AI × DAO を軸に、現場に役立つ情報を発信しています。</p>
+            <div class="hero-image-placeholder">Hero Image</div>
+        </section>
 
-    <!-- About Summary -->
-    <section id="about" class="section-bg-white digital-grid-bg">
-        <div class="container">
-            <h2 class="text-center">Who is EarthKey?</h2>
-            <p class="text-center mb-8" style="max-width: 700px; margin-left: auto; margin-right: auto;">
-                現役の病院薬剤師でありながら、AIツール（ChatGPT, Stable Diffusion等）を駆使するクリエイター。<br>
-                4人のAIパートナーと共に活動しています。
-            </p>
-
+        <!-- Character Section -->
+        <section class="section container">
+            <h3 class="text-center mb-8">AI Partners</h3>
             <div class="grid-4">
-                <!-- Character 1 -->
+                <!-- Maria -->
                 <div class="card text-center">
-                    <div class="card-image" style="height: 150px; background-color: #FCE7F3;">
-                        <span style="font-size: 3rem;">🌸</span>
-                    </div>
-                    <h4>マリア</h4>
-                    <p style="font-size: 0.9rem;">慈愛の精神で患者に寄り添う、チームの精神的支柱。</p>
+                    <span class="character-icon">🌸</span>
+                    <h4 class="character-name">マリア</h4>
+                    <p class="character-desc">
+                        静かに寄り添うような優しさを持ち、相手の気持ちを察して動ける慈愛系キャラ。<br>
+                        言葉少なめでも想いは深く、チームの心をそっと整えてくれる存在。
+                    </p>
                 </div>
-                <!-- Character 2 -->
+
+                <!-- Erika -->
                 <div class="card text-center">
-                    <div class="card-image" style="height: 150px; background-color: #E0F2FE;">
-                        <span style="font-size: 3rem;">🔷</span>
-                    </div>
-                    <h4>エリカ</h4>
-                    <p style="font-size: 0.9rem;">冷静沈着なデータ分析担当。最新論文とエビデンスを重視。</p>
+                    <span class="character-icon">🔷</span>
+                    <h4 class="character-name">エリカ</h4>
+                    <p class="character-desc">
+                        落ち着いた知性と大人の品を感じる、整ったロジカル思考の持ち主。<br>
+                        混乱した状況でもスッと道筋を示して、安心できる“頼れる参謀”。
+                    </p>
                 </div>
-                <!-- Character 3 -->
+
+                <!-- Naomi -->
                 <div class="card text-center">
-                    <div class="card-image" style="height: 150px; background-color: #DCFCE7;">
-                        <span style="font-size: 3rem;">🍀</span>
-                    </div>
-                    <h4>ナオミ</h4>
-                    <p style="font-size: 0.9rem;">漢方・自然療法に詳しい癒やし系。全体の調和を保つ。</p>
+                    <span class="character-icon">🍀</span>
+                    <h4 class="character-name">ナオミ</h4>
+                    <p class="character-desc">
+                        明るくてノリがよく、場の空気を一瞬で軽くするムードメーカー。<br>
+                        誰とでも壁を作らず話せるタイプで、自然とみんなを元気にする存在。
+                    </p>
                 </div>
-                <!-- Character 4 -->
+
+                <!-- Yurika -->
                 <div class="card text-center">
-                    <div class="card-image" style="height: 150px; background-color: #FEF3C7;">
-                        <span style="font-size: 3rem;">💛</span>
-                    </div>
-                    <h4>ユリカ</h4>
-                    <p style="font-size: 0.9rem;">元気いっぱいの新人薬剤師。新しいガジェットやAIが大好き。</p>
+                    <span class="character-icon">💛</span>
+                    <h4 class="character-name">ユリカ</h4>
+                    <p class="character-desc">
+                        夢や未来を語るのが大好きな、ふわっと優しい雰囲気のキャラ。<br>
+                        ロマンチックな比喩で空気を柔らかくし、希望の風を吹き込んでくれる“ひかり役”。
+                    </p>
                 </div>
             </div>
-
-            <div class="text-center" style="margin-top: 40px;">
-                <a href="about/" class="btn btn-outline">プロフィール詳細へ</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Works Summary -->
-    <section id="works">
-        <div class="container">
-            <h2 class="text-center">Recent Works</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-image">Medical DAO Article</div>
-                    <h4>Medical DAO 記事制作</h4>
-                    <p>医療×DAOの可能性について、専門的な知見を交えて執筆。</p>
-                </div>
-                <div class="card">
-                    <div class="card-image">NinjaDAO LP</div>
-                    <h4>NinjaDAO イベントLP</h4>
-                    <p>コミュニティイベントのランディングページ制作とディレクション。</p>
-                </div>
-                <div class="card">
-                    <div class="card-image">AI Art Collection</div>
-                    <h4>AI Art Collection</h4>
-                    <p>Stable Diffusionを用いたコンセプトアート制作。</p>
+        </section>
+        <!-- About Section -->
+        <section id="about" class="section container">
+            <h3 class="text-center mb-8">About EarthKey</h3>
+            <div class="card text-center">
+                <p>
+                    現役の病院薬剤師でありながら、AIツール（ChatGPT, Stable Diffusion等）を駆使するクリエイター。<br>
+                    DAOコミュニティでの活動を通じて、新しい医療のカタチとクリエイティブを探求しています。
+                </p>
+                <div style="margin-top: 20px;">
+                    <a href="about.html" style="color: #10B981; font-weight: bold;">もっと詳しく見る &rarr;</a>
                 </div>
             </div>
-            <div class="text-center" style="margin-top: 40px;">
-                <a href="works/" class="btn btn-primary">実績一覧を見る</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section section-bg-gradient">
-        <div class="container">
-            <h2 class="text-center">お問い合わせ</h2>
-            <p class="text-center mb-8">
-                AI活用やコンテンツ制作のご相談・ご依頼は、<br>下記のいずれかの方法からお気軽にご連絡ください。
-            </p>
-
+        <!-- Gallery Section -->
+        <section id="gallery" class="section container">
+            <h3 class="text-center mb-8">Gallery</h3>
             <div class="grid-2">
-                <!-- Google Form Block -->
-                <div class="contact-card card text-center">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📩</div>
-                    <h3>正式なご依頼・ご相談はこちら</h3>
-                    <p class="mb-4">
-                        案件のご相談、セミナー・登壇のご依頼、医療×AI活用に関する具体的なご相談は、以下のGoogleフォームからご連絡ください。
-                    </p>
-                    <!-- ※ここに実際のGoogleフォームURLを入れてください -->
-                    <a href="https://docs.google.com/forms/XXXXXXXX" class="btn btn-primary" target="_blank">
-                        Googleフォームで問い合わせる
-                    </a>
+                <div class="card text-center">
+                    <div
+                        style="height: 150px; background: #E2E8F0; border-radius: 8px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: #94A3B8;">AI Illustration</span>
+                    </div>
+                    <h4>AI Art</h4>
+                    <p class="character-desc">Stable Diffusionなどで生成したアート作品</p>
                 </div>
-
-                <!-- X (Twitter) DM Block -->
-                <div class="contact-card card text-center">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">💬</div>
-                    <h3>気軽なご相談・ご連絡はこちら</h3>
-                    <p class="mb-4">
-                        ちょっと聞いてみたいことや、コラボのご相談、カジュアルなご連絡はX（Twitter）のDMからどうぞ。
-                    </p>
-                    <!-- ※ここに実際のアカウントURLを入れてください -->
-                    <a href="https://x.com/your_handle" class="btn btn-primary" target="_blank">
-                        <i class="fa-brands fa-x-twitter"></i> DMを開く
-                    </a>
+                <div class="card text-center">
+                    <div
+                        style="height: 150px; background: #E2E8F0; border-radius: 8px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: #94A3B8;">AI Video</span>
+                    </div>
+                    <h4>AI Video</h4>
+                    <p class="character-desc">SunoやWanを使った動画作品</p>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="text-center" style="margin-top: 20px;">
+                <a href="gallery/index.html" style="color: #10B981; font-weight: bold;">ギャラリーを見る &rarr;</a>
+            </div>
+        </section>
 
-    <!-- Footer -->
+        <!-- Works Section -->
+        <section id="works" class="section container">
+            <h3 class="text-center mb-8">Works</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Medical DAO 記事制作</h4>
+                    <p class="character-desc">医療×DAOの可能性について、専門的な知見を交えて執筆。</p>
+                </div>
+                <div class="card">
+                    <h4>NinjaDAO LP制作</h4>
+                    <p class="character-desc">コミュニティイベントのランディングページ制作とディレクション。</p>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 20px;">
+                <a href="works/index.html" style="color: #10B981; font-weight: bold;">実績一覧を見る &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="section container">
+            <h3 class="text-center mb-8">Blog</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <span style="font-size: 0.8rem; color: #64748B;">2024.11.20</span>
+                    <h4>薬剤師のためのChatGPTプロンプト術</h4>
+                </div>
+                <div class="card">
+                    <span style="font-size: 0.8rem; color: #64748B;">2024.11.15</span>
+                    <h4>Stable Diffusionで描く未来の病院</h4>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 20px;">
+                <a href="blog/index.html" style="color: #10B981; font-weight: bold;">ブログを読む &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section container">
+            <h3 class="text-center mb-8">Contact</h3>
+            <div class="card text-center">
+                <p class="mb-8">
+                    AI活用やコンテンツ制作のご相談・ご依頼は、<br>お気軽にご連絡ください。
+                </p>
+                <a href="contact/index.html"
+                    style="background: #10B981; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+                    お問い合わせフォームへ
+                </a>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h3 class="footer-title">EarthKey</h3>
-                    <p>AI Pharmacist × DAO × Creative<br>Digital Forest Studio</p>
-                </div>
-                <div>
-                    <h4 class="footer-title">Sitemap</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about/">About</a></li>
-                        <li><a href="works/">Works</a></li>
-                        <li><a href="blog/">Blog</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">Contact</h4>
-                    <ul class="footer-links">
-                        <li><a href="contact/">お問い合わせフォーム</a></li>
-                        <li><a href="#">X (Twitter) DM</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2024 EarthKey. All Rights Reserved.
-            </div>
-        </div>
+        <p>© EarthKey | AI Pharmacist × DAO</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 
 </html>
