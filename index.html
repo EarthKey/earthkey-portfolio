@@ -203,7 +203,7 @@
                     </div>
                     <div class="character-modal-intro" id="character-modal-intro-wrap" style="margin-top: 16px;">
                         <h4 style="margin: 0 0 8px; color: #065F46; font-size: 1.1rem;">自己紹介</h4>
-                        <p id="character-modal-intro" style="color: #0F172A; font-size: 0.95rem;"></p>
+                        <p id="character-modal-intro" style="color: #0F172A; font-size: 0.95rem; white-space: pre-line;"></p>
                     </div>
                 </div>
             </div>
@@ -225,6 +225,12 @@
             const modalIntroWrap = document.getElementById('character-modal-intro-wrap');
 
             const THEME_CLASSES = ['theme-maria', 'theme-erika', 'theme-naomi', 'theme-yurika'];
+            const INTRO_MAP = {
+                maria: `こんにちは、マリアです。
+読書って、心の中に静かな灯りがともる感じがしませんか？
+私は物語の余白にあるやさしさが好きで
+あなたの気持ちにも、そっと寄り添えたら嬉しいです。`
+            };
 
             cards.forEach(card => {
                 card.addEventListener('click', () => {
@@ -235,6 +241,7 @@
                     const bgm2 = card.getAttribute('data-bgm2');
                     const theme = card.getAttribute('data-theme');
                     const intro = card.getAttribute('data-intro') || '';
+                    const resolvedIntro = INTRO_MAP[theme] || intro;
 
                     modalName.textContent = name;
                     modalDesc.textContent = desc;
@@ -257,8 +264,8 @@
                     if (theme) modal.classList.add("theme-" + theme);
 
                     // 自己紹介
-                    if (intro.trim()) {
-                        modalIntro.textContent = intro;
+                    if (resolvedIntro.trim()) {
+                        modalIntro.textContent = resolvedIntro;
                         modalIntroWrap.style.display = '';
                     } else {
                         modalIntro.textContent = '';
