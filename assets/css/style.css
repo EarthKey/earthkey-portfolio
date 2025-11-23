@@ -95,3 +95,233 @@ body {
     font-size: 0.95rem;
     color: #64748B;
 }
+
+/* キャラクターセクション */
+.character-section {
+    padding: 64px 24px;
+}
+
+.character-section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #065F46;
+    margin-bottom: 8px;
+}
+
+.character-section-lead {
+    text-align: center;
+    color: #64748B;
+    max-width: 640px;
+    margin: 0 auto 32px auto;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.character-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 12px 24px rgba(15, 118, 110, 0.08);
+    border: 1px solid #E5E7EB;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    text-align: center;
+}
+
+.character-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 32px rgba(15, 118, 110, 0.15);
+}
+
+.character-thumb {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+.character-card h3 {
+    margin: 8px 0;
+    font-size: 1.1rem;
+    color: #065F46;
+}
+
+.character-short {
+    font-size: 0.9rem;
+    color: #64748B;
+}
+
+/* モーダル全体（背景） */
+.character-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* モーダル表示時 */
+.character-modal-backdrop.is-open {
+    display: flex;
+}
+
+/* モーダル本体 */
+.character-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 800px;
+    width: 90%;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 24px 50px rgba(15, 23, 42, 0.35);
+}
+
+/* 閉じるボタン */
+.character-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #64748B;
+}
+
+.character-modal-close:hover {
+    color: #0F172A;
+}
+
+/* モーダル内部レイアウト */
+.character-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (min-width: 640px) {
+    .character-modal-body {
+        flex-direction: row;
+    }
+}
+
+.character-modal-image-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-modal-image-wrap img {
+    max-width: 100%;
+    border-radius: 20px;
+    border: 1px solid #E5E7EB;
+    background: #F0FDF4;
+}
+
+.character-modal-content {
+    flex: 1;
+    padding: 8px 0 0 0;
+}
+
+.character-modal-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #065F46;
+}
+
+.character-modal-content p {
+    font-size: 0.95rem;
+    color: #0F172A;
+}
+
+.character-modal-bgm {
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+.character-modal-bgm a {
+    display: inline-block;
+    margin-top: 4px;
+    color: #0EA5E9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.character-modal-bgm a:hover {
+    text-decoration: underline;
+}
+
+/* --- テーマごとの色指定 --- */
+
+/* ベースは共通（すでにあるやつ） */
+.character-modal {
+    border-top: 6px solid #10B981;
+    /* デフォルト：サイトのグリーン */
+}
+
+/* 🌸 マリア：やわらかいピンク系 */
+.character-modal.theme-maria {
+    border-top-color: #DB2777;
+    background: linear-gradient(135deg, #FFF1F2, #FFFFFF);
+}
+
+.character-modal.theme-maria .character-modal-content h3 {
+    color: #BE185D;
+}
+
+/* 🔷 エリカ：落ち着いたブルー系 */
+.character-modal.theme-erika {
+    border-top-color: #2563EB;
+    background: linear-gradient(135deg, #EFF6FF, #FFFFFF);
+}
+
+.character-modal.theme-erika .character-modal-content h3 {
+    color: #1D4ED8;
+}
+
+/* 🍀 ナオミ：明るいグリーン系（少しポップ寄せ） */
+.character-modal.theme-naomi {
+    border-top-color: #16A34A;
+    background: linear-gradient(135deg, #ECFDF5, #FFFFFF);
+}
+
+.character-modal.theme-naomi .character-modal-content h3 {
+    color: #15803D;
+}
+
+/* 💛 ユリカ：やさしいイエロー系 */
+.character-modal.theme-yurika {
+    border-top-color: #EAB308;
+    background: linear-gradient(135deg, #FEF9C3, #FFFFFF);
+}
+
+.character-modal.theme-yurika .character-modal-content h3 {
+    color: #CA8A04;
+}
+
+.bgm-list {
+    margin-top: 6px;
+    padding-left: 16px;
+}
+
+.bgm-list li {
+    margin-bottom: 4px;
+}
+
+.bgm-list a {
+    color: #0EA5E9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.bgm-list a:hover {
+    text-decoration: underline;
+}
