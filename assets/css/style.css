@@ -138,11 +138,11 @@ body {
 }
 
 .character-thumb {
-    width: 96px;
-    height: 96px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     border-radius: 999px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .character-card h3 {
@@ -164,7 +164,7 @@ body {
     /* ← 透過率を約20%に調整 */
     display: none;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     /* ← 右側に寄せる */
     z-index: 1000;
 }
@@ -176,27 +176,33 @@ body {
 
 /* モーダル本体（スライドイン前の初期状態） */
 .character-modal {
-    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    backdrop-filter: blur(12px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 20px;
-    max-width: 480px;
+    max-width: none;
     /* スライドパネルっぽく少し細めでもOK。好みで調整してね */
-    width: 90%;
+    width: 70vw;
+    height: 70vh;
     padding: 24px;
     position: relative;
-    box-shadow: 0 24px 50px rgba(15, 23, 42, 0.35);
+    box-shadow: 0 24px 50px rgba(15, 23, 42, 0.3);
     border-top: 6px solid #10B981;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
     /* スライドイン用の初期位置（画面の右外） */
-    transform: translateX(100%);
+    transform: translateY(-100%);
     opacity: 0;
     transition:
-        transform 0.25s ease-out,
-        opacity 0.25s ease-out;
+        transform 0.18s ease-out,
+        opacity 0.18s ease-out;
 }
 
 /* is-open 時に「横からスッ」と入ってくる */
 .character-modal-backdrop.is-open .character-modal {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
 }
 
@@ -287,7 +293,7 @@ body {
 /* 🌸 マリア：やわらかいピンク系 */
 .character-modal.theme-maria {
     border-top-color: #DB2777;
-    background: linear-gradient(135deg, #FFF1F2, #FFFFFF);
+    background: linear-gradient(135deg, rgba(255, 241, 242, 0.6), rgba(255, 255, 255, 0.6));
 }
 
 .character-modal.theme-maria .character-modal-content h3 {
@@ -297,7 +303,7 @@ body {
 /* 🔷 エリカ：落ち着いたブルー系 */
 .character-modal.theme-erika {
     border-top-color: #2563EB;
-    background: linear-gradient(135deg, #EFF6FF, #FFFFFF);
+    background: linear-gradient(135deg, rgba(239, 246, 255, 0.6), rgba(255, 255, 255, 0.6));
 }
 
 .character-modal.theme-erika .character-modal-content h3 {
@@ -307,7 +313,7 @@ body {
 /* 🍀 ナオミ：明るいグリーン系（少しポップ寄せ） */
 .character-modal.theme-naomi {
     border-top-color: #16A34A;
-    background: linear-gradient(135deg, #ECFDF5, #FFFFFF);
+    background: linear-gradient(135deg, rgba(236, 253, 245, 0.6), rgba(255, 255, 255, 0.6));
 }
 
 .character-modal.theme-naomi .character-modal-content h3 {
@@ -317,7 +323,7 @@ body {
 /* 💛 ユリカ：やさしいイエロー系 */
 .character-modal.theme-yurika {
     border-top-color: #EAB308;
-    background: linear-gradient(135deg, #FEF9C3, #FFFFFF);
+    background: linear-gradient(135deg, rgba(254, 249, 195, 0.6), rgba(255, 255, 255, 0.6));
 }
 
 .character-modal.theme-yurika .character-modal-content h3 {
