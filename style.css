@@ -452,6 +452,200 @@ body {
     left: 100%;
 }
 
+.character-modal-image-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-modal-image-wrap img {
+    max-width: 100%;
+    border-radius: 20px;
+    border: 1px solid #E5E7EB;
+    background: #F0FDF4;
+}
+
+.character-modal-content {
+    flex: 1;
+    padding: 8px 0 0 0;
+}
+
+.character-modal-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #065F46;
+}
+
+.character-modal-content p {
+    font-size: 0.95rem;
+    color: #0F172A;
+}
+
+.character-modal-bgm {
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+.character-modal-bgm a {
+    display: inline-block;
+    margin-top: 4px;
+    color: #0EA5E9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.character-modal-bgm a:hover {
+    text-decoration: underline;
+}
+
+/* --- テーマごとの色指定 --- */
+
+/* ベースは共通（すでにあるやつ） */
+.character-modal {
+    border-top: 6px solid #10B981;
+    /* デフォルト：サイトのグリーン */
+}
+
+/* 🌸 マリア：やわらかいピンク系 */
+.character-modal.theme-maria {
+    border-top-color: #DB2777;
+    background: linear-gradient(135deg, rgba(255, 241, 242, 0.6), rgba(255, 255, 255, 0.6));
+}
+
+.character-modal.theme-maria .character-modal-content h3 {
+    color: #BE185D;
+}
+
+/* 🔷 エリカ：落ち着いたブルー系 */
+.character-modal.theme-erika {
+    border-top-color: #2563EB;
+    background: linear-gradient(135deg, rgba(239, 246, 255, 0.6), rgba(255, 255, 255, 0.6));
+}
+
+.character-modal.theme-erika .character-modal-content h3 {
+    color: #1D4ED8;
+}
+
+/* 🍀 ナオミ：明るいグリーン系（少しポップ寄せ） */
+.character-modal.theme-naomi {
+    border-top-color: #16A34A;
+    background: linear-gradient(135deg, rgba(236, 253, 245, 0.6), rgba(255, 255, 255, 0.6));
+}
+
+.character-modal.theme-naomi .character-modal-content h3 {
+    color: #15803D;
+}
+
+/* 💛 ユリカ：やさしいイエロー系 */
+.character-modal.theme-yurika {
+    border-top-color: #EAB308;
+    background: linear-gradient(135deg, rgba(254, 249, 195, 0.6), rgba(255, 255, 255, 0.6));
+}
+
+.character-modal.theme-yurika .character-modal-content h3 {
+    color: #CA8A04;
+}
+
+.bgm-list {
+    margin-top: 6px;
+    padding-left: 16px;
+}
+
+.bgm-list li {
+    margin-bottom: 4px;
+}
+
+.bgm-list a {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 12px 24px rgba(15, 118, 110, 0.08);
+    border: 1px solid #E5E7EB;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    text-align: center;
+}
+
+.character-modal.theme-yurika .character-modal-content h3 {
+    color: #CA8A04;
+}
+
+.bgm-list {
+    margin-top: 6px;
+    padding-left: 16px;
+}
+
+.bgm-list li {
+    margin-bottom: 4px;
+}
+
+.bgm-list a {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 12px 24px rgba(15, 118, 110, 0.08);
+    border: 1px solid #E5E7EB;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    text-align: center;
+}
+
+.bgm-list a:hover {
+    text-decoration: underline;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin-top: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Profu Link Button --- */
+.profu-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3),
+        0 0 20px rgba(16, 185, 129, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.profu-link-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.profu-link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4),
+        0 0 30px rgba(16, 185, 129, 0.3);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.profu-link-btn:hover::before {
+    left: 100%;
+}
+
 .profu-link-btn .btn-icon {
     font-size: 1.2rem;
     animation: pulse 2s ease-in-out infinite;
@@ -467,4 +661,18 @@ body {
     50% {
         transform: scale(1.1);
     }
+}
+
+/* Styled Section Headers */
+.section-header-styled {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+    border: 2px solid #10B981;
+    border-radius: 9999px;
+    padding: 0.5rem 3rem;
+    color: #065F46;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.1);
 }
