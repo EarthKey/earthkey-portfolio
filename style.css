@@ -1004,3 +1004,32 @@ body {
     color: #065F46;
     box-shadow: 0 2px 4px rgba(16, 185, 129, 0.1);
 }
+
+/* AI Partners リッチボタン */
+.btn-ai-partners {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #065F46 0%, #10B981 60%, #34D399 100%);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.btn-ai-partners:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
+}
+.btn-ai-partners-icons {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+}
+.btn-ai-partners-text {
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+}
