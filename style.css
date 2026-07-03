@@ -1,3 +1,26 @@
+/* ============================================
+   EarthKey Forest Palette
+   Tailwind既製色から独自の深い森トーンへ (2026-07)
+   ============================================ */
+:root {
+    /* 森の緑（深→浅） */
+    --forest-950: #0B291C;
+    --forest-900: #133828;
+    --forest-800: #1C5440;
+    --forest-700: #23684E;
+    --forest-600: #2A7D5C;
+    --forest-500: #2D8A60;
+    --forest-300: #6FBB95;
+    --forest-100: #DCEFE3;
+    --forest-50: #F2F8F3;
+    /* 差し色 */
+    --leaf: #C4E3C0;      /* 舞う木の葉 */
+    --cream: #F7F3E7;     /* 木漏れ日のクリーム */
+    /* フォント */
+    --font-display: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif;
+    --font-body: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+
 html {
     font-size: 18px;
     scroll-behavior: smooth;
@@ -5,18 +28,26 @@ html {
 
 body {
     margin: 0;
-    background: #F0FDF4;
+    background: var(--forest-50);
     color: #0F172A;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     line-height: 1.6;
 }
 
+/* 見出しは丸ゴシックで森の柔らかさを */
+h1, h2, h3, h4,
+.site-brand-title,
+.back-to-top-label {
+    font-family: var(--font-display);
+}
+
 /* Forest background wrapper */
-.forest-bg {  min-height: 100vh;  background: radial-gradient(circle at top, #d1fae5 0, #064e3b 60%, #022c22 100%);  position: relative;  overflow: hidden;}
+.forest-bg {  min-height: 100vh;  background: radial-gradient(circle at top, var(--forest-100) 0, var(--forest-900) 60%, var(--forest-950) 100%);  position: relative;  overflow: hidden;}
 
 /* ページ本体を上に重ねる */
-.page-content {  position: relative;  z-index: 10;}
 .page-content {
+    position: relative;
+    z-index: 10;
     padding-top: 96px;
 }
 
@@ -28,7 +59,7 @@ section[id] {
 .leaf-layer {  position: fixed;  inset: 0;  pointer-events: none;  z-index: 5;}
 
 /* 葉の見た目と落下アニメ */
-.leaf {  position: absolute;  top: -40px;  width: 16px;  height: 16px;  border-radius: 999px;  background: #bbf7d0;  opacity: 0.9;  box-shadow: 0 0 6px rgba(22, 163, 74, 0.5);  animation-name: leaf-fall;  animation-timing-function: linear;  animation-iteration-count: infinite;}
+.leaf {  position: absolute;  top: -40px;  width: 16px;  height: 16px;  border-radius: 999px;  background: var(--leaf);  opacity: 0.9;  box-shadow: 0 0 6px rgba(45, 138, 96, 0.5);  animation-name: leaf-fall;  animation-timing-function: linear;  animation-iteration-count: infinite;}
 
 @keyframes leaf-fall {  0% {    transform: translate3d(0, 0, 0) rotate(0deg);    opacity: 0;  }  10% {    opacity: 1;  }  100% {    transform: translate3d(-40px, 110vh, 0) rotate(180deg);    opacity: 0;  }}
 
@@ -45,7 +76,7 @@ section[id] {
     width: 100%;
     z-index: 40;
     background: rgba(255, 255, 255, 0.82);
-    border-bottom: 1px solid #D1FAE5;
+    border-bottom: 1px solid var(--forest-100);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 }
@@ -74,14 +105,14 @@ section[id] {
     display: grid;
     place-items: center;
     font-size: 1.5rem;
-    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.28);
+    background: linear-gradient(135deg, var(--forest-500) 0%, var(--forest-600) 100%);
+    box-shadow: 0 12px 30px rgba(45, 138, 96, 0.28);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .site-brand:hover .site-brand-icon {
     transform: translateY(-2px);
-    box-shadow: 0 16px 34px rgba(16, 185, 129, 0.34);
+    box-shadow: 0 16px 34px rgba(45, 138, 96, 0.34);
 }
 
 .site-brand-copy {
@@ -93,7 +124,7 @@ section[id] {
     font-size: 1rem;
     font-weight: 800;
     letter-spacing: 0.08em;
-    color: #065F46;
+    color: var(--forest-800);
 }
 
 .site-brand-subtitle {
@@ -111,42 +142,42 @@ section[id] {
 .main-nav a {
     margin-right: 0;
     padding: 10px 14px;
-    color: #065F46;
+    color: var(--forest-800);
     text-decoration: none;
     background: rgba(255, 255, 255, 0.76);
-    border: 1px solid rgba(209, 250, 229, 0.9);
+    border: 1px solid rgba(220, 239, 227, 0.9);
     border-radius: 999px;
     transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .main-nav a:hover {
     transform: translateY(-1px);
-    border-color: rgba(16, 185, 129, 0.45);
+    border-color: rgba(45, 138, 96, 0.45);
     background: rgba(255, 255, 255, 0.96);
 }
 
 .hero-section {
     padding: 80px 24px;
-    background: linear-gradient(135deg, #ECFDF5, #E0F2FE);
+    background: linear-gradient(135deg, var(--forest-50), var(--cream));
     text-align: center;
 }
 
 .hero-image-placeholder {
     width: 100%;
     height: 240px;
-    background: #D1FAE5;
+    background: var(--forest-100);
     margin-top: 24px;
     border-radius: 16px;
 }
 
 .footer {
-    background: #022C22;
-    color: #ECFDF5;
+    background: var(--forest-950);
+    color: var(--forest-50);
     padding: 24px;
     text-align: center;
 }
 /* Footer links */
-.footer a { color: #ECFDF5; text-decoration: none; font-weight: 600; }
+.footer a { color: var(--forest-50); text-decoration: none; font-weight: 600; }
 .footer a:hover { text-decoration: underline; }
 
 .back-to-top {
@@ -159,17 +190,17 @@ section[id] {
     gap: 10px;
     padding: 12px 16px;
     border-radius: 999px;
-    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    background: linear-gradient(135deg, var(--forest-500) 0%, var(--forest-600) 100%);
     color: #FFFFFF;
     text-decoration: none;
     font-weight: 700;
-    box-shadow: 0 16px 36px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 16px 36px rgba(45, 138, 96, 0.3);
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .back-to-top:hover {
     transform: translateY(-3px);
-    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.36);
+    box-shadow: 0 20px 40px rgba(45, 138, 96, 0.36);
     filter: saturate(1.06);
 }
 
@@ -234,7 +265,7 @@ section[id] {
 }
 
 .character-name {
-    color: #065F46;
+    color: var(--forest-800);
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -253,7 +284,7 @@ section[id] {
 .character-section-title {
     text-align: center;
     font-size: 1.8rem;
-    color: #065F46;
+    color: var(--forest-800);
     margin-bottom: 8px;
 }
 
@@ -297,7 +328,7 @@ section[id] {
 .character-card h3 {
     margin: 8px 0;
     font-size: 1.1rem;
-    color: #065F46;
+    color: var(--forest-800);
 }
 
 .character-short {
@@ -337,7 +368,7 @@ section[id] {
     padding: 24px;
     position: relative;
     box-shadow: 0 24px 50px rgba(15, 23, 42, 0.3);
-    border-top: 6px solid #10B981;
+    border-top: 6px solid var(--forest-500);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
@@ -395,7 +426,7 @@ section[id] {
     max-width: 100%;
     border-radius: 20px;
     border: 1px solid #E5E7EB;
-    background: #F0FDF4;
+    background: var(--forest-50);
 }
 
 .character-modal-content {
@@ -406,7 +437,7 @@ section[id] {
 .character-modal-content h3 {
     font-size: 1.4rem;
     margin-bottom: 8px;
-    color: #065F46;
+    color: var(--forest-800);
 }
 
 .character-modal-content p {
@@ -435,7 +466,7 @@ section[id] {
 
 /* ベースは共通（すでにあるやつ） */
 .character-modal {
-    border-top: 6px solid #10B981;
+    border-top: 6px solid var(--forest-500);
     /* デフォルト：サイトのグリーン */
 }
 
@@ -499,30 +530,6 @@ section[id] {
     text-align: center;
 }
 
-.character-modal.theme-yurika .character-modal-content h3 {
-    color: #CA8A04;
-}
-
-.bgm-list {
-    margin-top: 6px;
-    padding-left: 16px;
-}
-
-.bgm-list li {
-    margin-bottom: 4px;
-}
-
-.bgm-list a {
-    background: #FFFFFF;
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 12px 24px rgba(15, 118, 110, 0.08);
-    border: 1px solid #E5E7EB;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    text-align: center;
-}
-
 .bgm-list a:hover {
     text-decoration: underline;
 }
@@ -543,14 +550,14 @@ section[id] {
     justify-content: center;
     gap: 8px;
     padding: 14px 32px;
-    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    background: linear-gradient(135deg, var(--forest-500) 0%, var(--forest-600) 100%);
     color: #FFFFFF;
     font-weight: 600;
     font-size: 1rem;
     border-radius: 12px;
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3),
-        0 0 20px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 4px 12px rgba(45, 138, 96, 0.3),
+        0 0 20px rgba(45, 138, 96, 0.2);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -569,203 +576,9 @@ section[id] {
 
 .profu-link-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4),
-        0 0 30px rgba(16, 185, 129, 0.3);
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
-}
-
-.profu-link-btn:hover::before {
-    left: 100%;
-}
-
-.character-modal-image-wrap {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.character-modal-image-wrap img {
-    max-width: 100%;
-    border-radius: 20px;
-    border: 1px solid #E5E7EB;
-    background: #F0FDF4;
-}
-
-.character-modal-content {
-    flex: 1;
-    padding: 8px 0 0 0;
-}
-
-.character-modal-content h3 {
-    font-size: 1.4rem;
-    margin-bottom: 8px;
-    color: #065F46;
-}
-
-.character-modal-content p {
-    font-size: 0.95rem;
-    color: #0F172A;
-}
-
-.character-modal-bgm {
-    margin-top: 16px;
-    font-size: 0.9rem;
-}
-
-.character-modal-bgm a {
-    display: inline-block;
-    margin-top: 4px;
-    color: #0EA5E9;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.character-modal-bgm a:hover {
-    text-decoration: underline;
-}
-
-/* --- テーマごとの色指定 --- */
-
-/* ベースは共通（すでにあるやつ） */
-.character-modal {
-    border-top: 6px solid #10B981;
-    /* デフォルト：サイトのグリーン */
-}
-
-/* 🌸 マリア：やわらかいピンク系 */
-.character-modal.theme-maria {
-    border-top-color: #DB2777;
-    background: linear-gradient(135deg, rgba(255, 241, 242, 0.6), rgba(255, 255, 255, 0.6));
-}
-
-.character-modal.theme-maria .character-modal-content h3 {
-    color: #BE185D;
-}
-
-/* 🔷 エリカ：落ち着いたブルー系 */
-.character-modal.theme-erika {
-    border-top-color: #2563EB;
-    background: linear-gradient(135deg, rgba(239, 246, 255, 0.6), rgba(255, 255, 255, 0.6));
-}
-
-.character-modal.theme-erika .character-modal-content h3 {
-    color: #1D4ED8;
-}
-
-/* 🍀 ナオミ：明るいグリーン系（少しポップ寄せ） */
-.character-modal.theme-naomi {
-    border-top-color: #16A34A;
-    background: linear-gradient(135deg, rgba(236, 253, 245, 0.6), rgba(255, 255, 255, 0.6));
-}
-
-.character-modal.theme-naomi .character-modal-content h3 {
-    color: #15803D;
-}
-
-/* 💛 ユリカ：やさしいイエロー系 */
-.character-modal.theme-yurika {
-    border-top-color: #EAB308;
-    background: linear-gradient(135deg, rgba(254, 249, 195, 0.6), rgba(255, 255, 255, 0.6));
-}
-
-.character-modal.theme-yurika .character-modal-content h3 {
-    color: #CA8A04;
-}
-
-.bgm-list {
-    margin-top: 6px;
-    padding-left: 16px;
-}
-
-.bgm-list li {
-    margin-bottom: 4px;
-}
-
-.bgm-list a {
-    background: #FFFFFF;
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 12px 24px rgba(15, 118, 110, 0.08);
-    border: 1px solid #E5E7EB;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    text-align: center;
-}
-
-.character-modal.theme-yurika .character-modal-content h3 {
-    color: #CA8A04;
-}
-
-.bgm-list {
-    margin-top: 6px;
-    padding-left: 16px;
-}
-
-.bgm-list li {
-    margin-bottom: 4px;
-}
-
-.bgm-list a {
-    background: #FFFFFF;
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 12px 24px rgba(15, 118, 110, 0.08);
-    border: 1px solid #E5E7EB;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    text-align: center;
-}
-
-.bgm-list a:hover {
-    text-decoration: underline;
-}
-
-.hero-image {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    margin-top: 24px;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-/* --- Profu Link Button --- */
-.profu-link-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 32px;
-    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 1rem;
-    border-radius: 12px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3),
-        0 0 20px rgba(16, 185, 129, 0.2);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.profu-link-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
-}
-
-.profu-link-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4),
-        0 0 30px rgba(16, 185, 129, 0.3);
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 6px 20px rgba(45, 138, 96, 0.4),
+        0 0 30px rgba(45, 138, 96, 0.3);
+    background: linear-gradient(135deg, var(--forest-600) 0%, var(--forest-700) 100%);
 }
 
 .profu-link-btn:hover::before {
@@ -801,13 +614,13 @@ section[id] {
 .hero-badge {
     display: inline-block;
     background: rgba(255, 255, 255, 0.85);
-    color: #065F46;
+    color: var(--forest-800);
     font-size: 0.9rem;
     font-weight: 700;
     padding: 6px 16px;
     border-radius: 9999px;
-    border: 1.5px solid #10B981;
-    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.15);
+    border: 1.5px solid var(--forest-500);
+    box-shadow: 0 2px 6px rgba(45, 138, 96, 0.15);
 }
 
 /* --- Hero Actions --- */
@@ -821,7 +634,7 @@ section[id] {
 
 .btn-primary {
     display: inline-block;
-    background: #10B981;
+    background: var(--forest-500);
     color: #FFFFFF;
     font-weight: 700;
     font-size: 1rem;
@@ -832,25 +645,25 @@ section[id] {
 }
 
 .btn-primary:hover {
-    background: #059669;
+    background: var(--forest-600);
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     display: inline-block;
     background: transparent;
-    color: #065F46;
+    color: var(--forest-800);
     font-weight: 700;
     font-size: 1rem;
     padding: 12px 28px;
     border-radius: 10px;
-    border: 2px solid #10B981;
+    border: 2px solid var(--forest-500);
     text-decoration: none;
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .btn-secondary:hover {
-    background: #D1FAE5;
+    background: var(--forest-100);
     transform: translateY(-2px);
 }
 
@@ -878,8 +691,8 @@ section[id] {
 
 .channel-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(16, 185, 129, 0.15);
-    border-color: #10B981;
+    box-shadow: 0 12px 24px rgba(45, 138, 96, 0.15);
+    border-color: var(--forest-500);
 }
 
 .channel-icon {
@@ -889,7 +702,7 @@ section[id] {
 }
 
 .channel-card h4 {
-    color: #065F46;
+    color: var(--forest-800);
     font-size: 1rem;
     font-weight: 700;
     margin: 0 0 6px 0;
@@ -915,7 +728,7 @@ section[id] {
 }
 
 .works-text h4 {
-    color: #065F46;
+    color: var(--forest-800);
     font-size: 1.2rem;
     margin: 0 0 8px 0;
 }
@@ -926,7 +739,7 @@ section[id] {
 }
 
 .works-link {
-    color: #10B981;
+    color: var(--forest-500);
     font-weight: 700;
     text-decoration: none;
 }
@@ -939,8 +752,8 @@ section[id] {
     display: inline-block;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #065F46;
-    background: #D1FAE5;
+    color: var(--forest-800);
+    background: var(--forest-100);
     border-radius: 999px;
     padding: 2px 12px;
     margin-bottom: 8px;
@@ -984,15 +797,15 @@ section[id] {
 .story-highlight {
     font-size: 1.15rem !important;
     font-weight: 700;
-    color: #065F46 !important;
-    border-left: 4px solid #10B981;
+    color: var(--forest-800) !important;
+    border-left: 4px solid var(--forest-500);
     padding-left: 16px;
     margin: 1.6rem 0 !important;
 }
 
 .story-closing {
     font-weight: 600;
-    color: #065F46 !important;
+    color: var(--forest-800) !important;
 }
 
 /* --- About Profile Image --- */
@@ -1029,7 +842,7 @@ section[id] {
 }
 
 .theme-header h4 {
-    color: #065F46;
+    color: var(--forest-800);
     font-size: 1rem;
     font-weight: 700;
     margin: 0;
@@ -1056,7 +869,7 @@ section[id] {
     content: '▸';
     position: absolute;
     left: 0;
-    color: #10B981;
+    color: var(--forest-500);
     font-size: 0.8rem;
     top: 2px;
 }
@@ -1064,7 +877,7 @@ section[id] {
 /* --- About Page --- */
 .about-heading {
     font-size: 1.3rem;
-    color: #065F46;
+    color: var(--forest-800);
     margin: 0 0 16px 0;
 }
 
@@ -1089,7 +902,7 @@ section[id] {
 
 .profile-table th {
     width: 140px;
-    color: #065F46;
+    color: var(--forest-800);
     font-weight: 700;
     white-space: nowrap;
 }
@@ -1099,7 +912,7 @@ section[id] {
 }
 
 .profile-table td a {
-    color: #10B981;
+    color: var(--forest-500);
     text-decoration: none;
     font-weight: 600;
 }
@@ -1119,12 +932,12 @@ section[id] {
     margin-left: auto;
     margin-right: auto;
     font-size: 1.8rem;
-    background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
-    border: 2px solid #10B981;
+    background: linear-gradient(135deg, var(--forest-50) 0%, var(--forest-100) 100%);
+    border: 2px solid var(--forest-500);
     border-radius: 9999px;
     padding: 0.5rem 3rem;
-    color: #065F46;
-    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.1);
+    color: var(--forest-800);
+    box-shadow: 0 2px 4px rgba(45, 138, 96, 0.1);
 }
 
 /* AI Partners リッチボタン */
@@ -1134,18 +947,18 @@ section[id] {
     align-items: center;
     gap: 6px;
     padding: 14px 32px;
-    background: linear-gradient(135deg, #065F46 0%, #10B981 60%, #34D399 100%);
+    background: linear-gradient(135deg, var(--forest-800) 0%, var(--forest-500) 60%, var(--forest-300) 100%);
     color: #fff;
     font-weight: bold;
     border-radius: 12px;
     text-decoration: none;
-    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 4px 16px rgba(45, 138, 96, 0.4);
     transition: transform 0.2s, box-shadow 0.2s;
     border: 1px solid rgba(255,255,255,0.2);
 }
 .btn-ai-partners:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 8px 24px rgba(45, 138, 96, 0.5);
 }
 .btn-ai-partners-icons {
     font-size: 1.4rem;
