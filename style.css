@@ -994,3 +994,139 @@ section[id] {
         display: none;
     }
 }
+
+/* ============================================
+   背景イメージ（DAO HOSPITAL・うっすら敷く）
+   2026-08-05 追加
+   ============================================ */
+.forest-bg::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("./assets/bg/dao-hospital.webp");
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ============================================
+   モーション（スクロール連動・ホバー・初回ロード）
+   2026-08-05 追加
+   ============================================ */
+
+/* 1. スクロールでふわっと現れる */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* 同じ行に並ぶカードは少しずつ遅らせる */
+.reveal.d1 { transition-delay: 0.08s; }
+.reveal.d2 { transition-delay: 0.16s; }
+.reveal.d3 { transition-delay: 0.24s; }
+
+/* 3. カードにホバーすると浮き上がる */
+.card {
+    transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 34px -14px rgba(11, 41, 28, 0.45);
+    border-color: var(--forest-300);
+}
+
+/* 4. ファーストビューの要素が順に出てくる */
+.hero-section > * {
+    animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-section > *:nth-child(1) { animation-delay: 0.10s; }
+.hero-section > *:nth-child(2) { animation-delay: 0.22s; }
+.hero-section > *:nth-child(3) { animation-delay: 0.34s; }
+.hero-section > *:nth-child(4) { animation-delay: 0.46s; }
+.hero-section > *:nth-child(5) { animation-delay: 0.58s; }
+.hero-section > *:nth-child(6) { animation-delay: 0.70s; }
+
+@keyframes hero-rise {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* 動きを減らす設定の人には出さない */
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .hero-section > * {
+        animation: none;
+    }
+    .card,
+    .card:hover {
+        transition: none;
+        transform: none;
+    }
+}
+
+/* ============================================
+   メイン固定カード（Brain教材）— 朱色で強調
+   2026-08-05 追加
+   ============================================ */
+:root {
+    --vermilion: #C0392B;      /* 忍びの朱 */
+    --vermilion-600: #A93226;
+    --vermilion-50: #FFF6F4;
+}
+
+.works-card.works-card-featured {
+    border: 2px solid var(--vermilion);
+    background: linear-gradient(180deg, var(--vermilion-50) 0%, #FFFFFF 55%);
+    box-shadow: 0 10px 28px -14px rgba(192, 57, 43, 0.55);
+}
+
+.works-card.works-card-featured:hover {
+    border-color: var(--vermilion-600);
+    box-shadow: 0 20px 40px -14px rgba(192, 57, 43, 0.55);
+}
+
+.works-card-featured .works-tag.works-tag-featured {
+    background: var(--vermilion);
+    color: #FFFFFF;
+}
+
+.works-card-featured h4 {
+    color: var(--vermilion-600);
+}
+
+.works-card-featured .works-link.works-link-featured {
+    color: var(--vermilion);
+    font-weight: 700;
+}
+
+.works-card-featured .works-link.works-link-featured:hover {
+    color: var(--vermilion-600);
+}

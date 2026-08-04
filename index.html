@@ -120,19 +120,39 @@
                 <section id="works" class="section container">
                     <h3 class="text-center mb-8 section-header-styled">Works</h3>
                     
-                    <!-- ComfyUI 動画API コスパ＆ベンチマーク比較表 2026 -->
+                    <!-- クリプトニンジャAI創作スターターキット（メイン固定・赤で強調） -->
+                    <div class="card works-card works-card-featured" style="margin-bottom: 24px;">
+                        <div class="works-inner">
+                            <div class="works-text">
+                                <p class="works-tag works-tag-featured">🥷 AI創作教材</p>
+                                <h4>クリプトニンジャAI創作スターターキット</h4>
+                                <p>CryptoNinjaのキャラクターを、公式の見た目のままAIで生成するための教材。登録キャラ全員ぶんの外見を言語化した辞書と、専用GPTs、イラスト・漫画・絵コンテの工程解説をまとめています。</p>
+                                <a href="https://brmk.io/rnmJcc" target="_blank" rel="noopener noreferrer"
+                                    class="works-link works-link-featured">教材を見る →</a>
+                            </div>
+                            <div class="works-thumb">
+                                <a href="https://brmk.io/rnmJcc" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://image.brain-market.com/store/a41796a7cae3990294eab66db1f5a110.png"
+                                        alt="クリプトニンジャAI創作スターターキット">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- トリッカフラワー -->
                     <div class="card works-card" style="margin-bottom: 24px;">
                         <div class="works-inner">
                             <div class="works-text">
-                                <p class="works-tag">🛠 AIツール</p>
-                                <h4>ComfyUI 動画API コスパ＆ベンチマーク比較表</h4>
-                                <p>ComfyUI公式パートナーノードの動画生成モデルを「5秒あたりのコスト」と「ユーザー投票による品質評価（ELOスコア）」で比較できるインタラクティブな一覧表ツール。</p>
-                                <a href="https://comfyui-cost-table.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                <p class="works-tag">🎮 ブラウザゲーム</p>
+                                <h4>トリッカフラワー 〜咲耶の里と薬草の祠〜</h4>
+                                <p>薬草を集めて処方を組み立てるブラウザゲーム。CryptoNinjaのキャラクターたちが暮らす里を舞台に、季節ごとのステージを巡りながら生薬と漢方に触れられる構成にしています。</p>
+                                <a href="https://torika-flower-site.vercel.app/" target="_blank" rel="noopener noreferrer"
                                     class="works-link">サイトを見る →</a>
                             </div>
                             <div class="works-thumb">
-                                <a href="https://comfyui-cost-table.vercel.app/" target="_blank" rel="noopener noreferrer">
-                                    <img src="https://comfyui-cost-table.vercel.app/og-image.png" alt="ComfyUI 動画API コスパ＆ベンチマーク比較表">
+                                <a href="https://torika-flower-site.vercel.app/" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://torika-flower-site.vercel.app/assets/ogp.png" loading="lazy"
+                                        alt="トリッカフラワー 〜咲耶の里と薬草の祠〜">
                                 </a>
                             </div>
                         </div>
@@ -157,7 +177,7 @@
                     </div>
 
                     <div class="text-center" style="margin-top: 20px;">
-                        <a href="works/index.html" style="color: var(--forest-500); font-weight: bold;">実績一覧を見る →</a>
+                        <a href="works/index.html" style="color: #ffffff; font-weight: bold; font-size: 1.15rem;">実績一覧を見る →</a>
                     </div>
                 </section>
 
@@ -250,6 +270,47 @@
                 leaf.style.animationDuration = (8 + Math.random() * 6) + 's';
                 leafLayer.appendChild(leaf);
             }
+        })();
+    </script>
+
+    <!-- スクロール連動フェードイン（2026-08-05追加） -->
+    <script>
+        (function () {
+            const targets = document.querySelectorAll(
+                '.page-sections .card, .page-sections .section > h2, .page-sections .section > h3, .page-sections .section > p'
+            );
+            if (!targets.length) return;
+
+            // 動きを減らす設定なら何もしない（CSS側でも無効化済み）
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            targets.forEach(function (el, i) {
+                el.classList.add('reveal');
+                const d = i % 3;
+                if (d) el.classList.add('d' + d);
+            });
+
+            if (!('IntersectionObserver' in window)) {
+                targets.forEach(function (el) { el.classList.add('is-visible'); });
+                return;
+            }
+
+            const io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                });
+            }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+
+            // 初期状態（opacity:0）をブラウザに確定させてから監視を始める。
+            // 同じフレームで is-visible を足すとトランジションが走らず、
+            // 「動いていないように見える」原因になる。
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    targets.forEach(function (el) { io.observe(el); });
+                });
+            });
         })();
     </script>
 </body>
