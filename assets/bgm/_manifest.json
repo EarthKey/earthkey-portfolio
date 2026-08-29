@@ -1,0 +1,66 @@
+[
+ {
+  "file": "erika-1.mp3",
+  "title": "Erika's Theme 1",
+  "who": "エリカ",
+  "theme": "erika",
+  "sec": 196.5,
+  "mb": 4.5
+ },
+ {
+  "file": "erika-2.mp3",
+  "title": "Erika's Theme 2",
+  "who": "エリカ",
+  "theme": "erika",
+  "sec": 159.8,
+  "mb": 3.66
+ },
+ {
+  "file": "maria-2.mp3",
+  "title": "Maria's Theme 2",
+  "who": "マリア",
+  "theme": "maria",
+  "sec": 224.9,
+  "mb": 5.15
+ },
+ {
+  "file": "maria-1.mp3",
+  "title": "Maria's Theme 1",
+  "who": "マリア",
+  "theme": "maria",
+  "sec": 214.6,
+  "mb": 4.91
+ },
+ {
+  "file": "naomi-1.mp3",
+  "title": "Naomi's Theme 1",
+  "who": "ナオミ",
+  "theme": "naomi",
+  "sec": 212.8,
+  "mb": 4.87
+ },
+ {
+  "file": "naomi-2.mp3",
+  "title": "Naomi's Theme 2",
+  "who": "ナオミ",
+  "theme": "naomi",
+  "sec": 199.1,
+  "mb": 4.56
+ },
+ {
+  "file": "yurika-1.mp3",
+  "title": "Yurika's Theme 1",
+  "who": "ユリカ",
+  "theme": "yurika",
+  "sec": 196.1,
+  "mb": 4.49
+ },
+ {
+  "file": "yurika-2.mp3",
+  "title": "Yurika's Theme 2",
+  "who": "ユリカ",
+  "theme": "yurika",
+  "sec": 290.0,
+  "mb": 6.64
+ }
+]

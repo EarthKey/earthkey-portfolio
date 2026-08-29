@@ -14,3 +14,4 @@ node_modules
 wrangler.jsonc.bak
 .assetsignore.bak_20260829
 card/profile-original.jpg
+assets/bgm/_manifest.json
