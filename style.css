@@ -1161,6 +1161,10 @@ section[id] {
       代わりに、役割を持たない Tailwind の残骸 #E5E7EB を「白」ではなくパレット側へ寄せる。 */
 .card,
 .channel-card { border-color: var(--forest-100); }       /* #E5E7EB → #DCEFE3 */
+/* 2026-08-29 第4巡（/ai-partners/）: 同じ理由でキャラカードの枠も。
+   Tailwind由来の #E5E7EB はこのサイトのパレットに属さない「よそから来た灰色」で、
+   並べないと分からないのに別の色として管理されている状態だった。 */
+.character-card { border-color: var(--forest-100); }
 .works-card-featured h4 { color: var(--vermilion); }     /* #A93226 → #C0392B（朱の2階調を1本に） */
 .card p[style*="374151"] { color: #334155 !important; }  /* index.html:215 のインライン指定 */
 

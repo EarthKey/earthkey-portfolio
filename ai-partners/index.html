@@ -40,8 +40,8 @@
                     <h2>AI Partners</h2>
                     <div class="card" style="max-width:600px;margin:0 auto 2rem;background:linear-gradient(135deg,var(--forest-50),var(--forest-100));border:2px solid var(--forest-500);text-align:center;">
                         <p style="font-size:1.5rem;margin-bottom:0.5rem;">🌸🔷🍀💛</p>
-                        <p style="font-weight:bold;color:var(--forest-800);font-size:1.1rem;margin-bottom:0.5rem;">ここまで来てくれてありがとう！</p>
-                        <p style="color:#334155;font-size:0.95rem;margin:0;">About ページからわざわざ辿ってくれたあなたへ。<br>4人のAI薬剤師キャラクターたちを、ゆっくり見ていってください。</p>
+                        <p style="font-weight:bold;color:var(--forest-800);font-size:1rem;margin-bottom:0.5rem;">ここまで来てくれてありがとう！</p>
+                        <p style="color:#334155;font-size:0.9rem;margin:0;">About ページからわざわざ辿ってくれたあなたへ。<br>4人のAI薬剤師キャラクターたちを、ゆっくり見ていってください。</p>
                     </div>
                     <p>アースキーが生み出した、4人のAI薬剤師キャラクターたちを紹介します！医療・AI・DAOそれぞれの個性を持った彼女たちは、アースキーの活動を一緒に盛り上げてくれる大切なパートナー。カードをクリックして、ぜひ仲良くなってみてください。</p>
                 </section>
@@ -121,7 +121,7 @@
                     <button class="character-modal-close" id="character-modal-close" aria-label="閉じる">✕</button>
                     <div class="character-modal-body">
                         <div class="character-modal-image-wrap">
-                            <img id="character-modal-image" src="" alt="" />
+                            <img id="character-modal-image" alt="" />
                         </div>
                         <div class="character-modal-content">
                             <h3 id="character-modal-name"></h3>
@@ -132,7 +132,7 @@
                             </div>
                             <div class="character-modal-intro" id="character-modal-intro-wrap" style="margin-top: 16px;">
                                 <h4 style="margin: 0 0 8px; color: var(--forest-800); font-size: 1.1rem;">自己紹介</h4>
-                                <p id="character-modal-intro" style="color: #0F172A; font-size: 0.95rem; white-space: pre-line;"></p>
+                                <p id="character-modal-intro" style="color: #0F172A; font-size: 0.9rem; white-space: pre-line;"></p>
                             </div>
                         </div>
                     </div>
@@ -216,7 +216,7 @@ DAOってね、まるでみんなで未来の物語を書いていく世界み�
 
                     function closeModal() {
                         modalBackdrop.classList.remove('is-open');
-                        modalImage.src = '';
+                        modalImage.removeAttribute('src');  /* 空文字にすると現在のページURLを画像として読みに行く（金継ぎ 2026-08-29 検出） */
                         modalBgmList.innerHTML = '';
                         if (modalIntro) modalIntro.textContent = '';
                         if (modalIntroWrap) modalIntroWrap.style.display = 'none';
