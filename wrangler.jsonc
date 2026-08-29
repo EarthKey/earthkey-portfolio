@@ -1,0 +1,16 @@
+{
+  // earthkey-portfolio — Cloudflare Workers 静的アセット構成
+  // 2026-08-18 Vercel(Hobby)からの移行時に作成。
+  // 移行理由: Hobbyプランは非商用個人利用のみ。特商法表記のある本サイトは規約上Pro必須のため。
+  // 2026-08-19 独自ドメイン earthkey.me を紐付け（apex + www）。
+  "name": "earthkey-portfolio",
+  "compatibility_date": "2026-08-18",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "earthkey.me", "custom_domain": true },
+    { "pattern": "www.earthkey.me", "custom_domain": true }
+  ]
+}

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>アースキー ｜ デジタル名刺</title>
+  <meta name="description"
+    content="現役病院薬剤師 × AIクリエイター、アースキーのデジタル名刺。医療現場の認知負荷を減らすための「明日ひとつだけ安全に試せる」使い方を毎日お届けしています。" />
+  <link rel="canonical" href="https://earthkey.me/card/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="アースキー" />
+  <meta property="og:title" content="アースキー ｜ デジタル名刺" />
+  <meta property="og:description" content="現役病院薬剤師 × AIクリエイター / Clinical Pharmacist × AI Builder" />
+  <meta property="og:url" content="https://earthkey.me/card/" />
+  <meta property="og:image" content="https://earthkey.me/assets/icons/EK-TOP.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="アースキー ｜ デジタル名刺" />
+  <meta name="twitter:description" content="現役病院薬剤師 × AIクリエイター / Clinical Pharmacist × AI Builder" />
+  <meta name="twitter:image" content="https://earthkey.me/assets/icons/EK-TOP.png" />
+
+  <meta name="theme-color" content="#0B291C" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" />
+
+  <style>
+    /* ============================================================
+       アースキー デジタル名刺 /card/
+       色は既存LP（style.css）の EarthKey Forest Palette から実値を引き写し。
+       新しい色は発明していない。
+       反復モチーフ「カプセル」の出典:
+       00_システム/00_UserProfile/00_Characters/EarthKey_Avatar.md
+       — 額当ての中央に「medicine capsule-shaped metal badge（AI刻印）」
+       ============================================================ */
+
+    :root {
+      /* 森の緑（深→浅）— 既存LPからの引き写し */
+      --forest-950: #0B291C;
+      --forest-900: #133828;
+      --forest-800: #1C5440;
+      --forest-700: #23684E;
+      --forest-500: #2D8A60;
+      --forest-300: #6FBB95;
+      --forest-100: #DCEFE3;
+
+      /* 差し色 */
+      --leaf: #C4E3C0;
+      --cream: #F7F3E7;
+
+      /* 紙の上で使う文字色。新色を作らず既存パレットをそのまま当てる
+         （金継ぎ 2026-08-29: 独自の #12241B / #3F5A4C は forest-950 / forest-800 と
+          似て非なる色で12点の減点。さらに forest-950 は地と近すぎたため forest-900 へ寄せて散らかり度0。対クリーム比は 900=11.7 / 800=7.9 で床4.5を満たす） */
+      --ink: var(--forest-900);
+      --ink-soft: var(--forest-800);
+
+      /* 書体は既存LPと共有する（色で場所を分け、書体で作者を揃える） */
+      --font-display: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN', 'Yu Gothic', sans-serif;
+      --font-body: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+
+      /* カプセル */
+      --capsule: 999px;
+
+      --shell: min(92vw, 420px);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--cream);
+      background: var(--forest-950);
+      /* 森の地。既存LPの radial-gradient と同じ組み立てで、名刺用に静かにした */
+      background-image:
+        radial-gradient(120% 80% at 50% -10%, #1C5440 0%, #133828 42%, #0B291C 100%);
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0 calc(40px + env(safe-area-inset-bottom, 0px));
+      overflow-x: hidden;
+    }
+
+    /* 地に薄く粒子を敷いて、単色の平面に見えないようにする */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .5;
+      background-image:
+        radial-gradient(circle at 18% 22%, rgba(196, 227, 192, .10) 0, transparent 42%),
+        radial-gradient(circle at 82% 74%, rgba(111, 187, 149, .09) 0, transparent 38%);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: var(--shell);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* ============================================================
+       名刺カード（実物と同じ 91 × 55mm ＝ 1.6545 : 1）
+       ============================================================ */
+
+    .card {
+      position: relative;
+      aspect-ratio: 1.6545 / 1;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--cream);
+      /* 紙の質感。斜めの微細な縞を極薄で重ねる */
+      background-image:
+        repeating-linear-gradient(115deg,
+          rgba(18, 36, 27, .022) 0px,
+          rgba(18, 36, 27, .022) 1px,
+          transparent 1px,
+          transparent 4px);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, .55) inset,
+        0 18px 40px -18px rgba(0, 0, 0, .65),
+        0 2px 8px rgba(0, 0, 0, .28);
+      overflow: hidden;
+    }
+
+    /* カードの左端に走るカプセル型の帯（森の緑）＝紙を留めている金具のつもり */
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12%;
+      bottom: 12%;
+      width: 6px;
+      border-radius: 0 var(--capsule) var(--capsule) 0;
+      background: linear-gradient(180deg, var(--forest-500), var(--forest-700));
+    }
+
+    .avatar {
+      flex: 0 0 auto;
+      position: relative;
+      width: clamp(76px, 24vw, 104px);
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      /* 画像が未配置でも崩れないよう、下地に「AIカプセル」の意匠を敷いておく。
+         profile.jpg が置かれたら、その上に重なって表示される。 */
+      background-color: var(--cream);
+      background-image:
+        url("./profile.jpg"),
+        radial-gradient(circle at 50% 38%, #FFFFFF 0%, var(--cream) 55%, var(--forest-300) 100%);
+      background-size: cover, cover;
+      background-position: center, center;
+      background-repeat: no-repeat, no-repeat;
+      box-shadow: 0 0 0 1px rgba(18, 36, 27, .10), 0 4px 12px -6px rgba(0, 0, 0, .4);
+    }
+
+    /* 2026-08-29: 「AI」カプセルバッジを廃止した。
+       ①アバターの絵柄（白衣と手）に被る ②キャラクター自身が赤青のカプセルを持っており
+       モチーフが二重になる ③金継ぎの未計測1件（div.avatar::after）の発生源でもあった。
+       カプセルのモチーフは、リンクボタンとカードの罫・左端の帯が引き継ぐ。 */
+
+    .card-body {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .brand {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 500;
+      color: var(--ink-soft);
+      letter-spacing: .02em;
+    }
+
+    .name {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(26px, 7.4vw, 32px);
+      line-height: 1.15;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: .01em;
+    }
+
+    /* 名前の下のカプセル罫 */
+    .rule {
+      width: 44px;
+      height: 4px;
+      margin: 7px 0 6px;
+      border-radius: var(--capsule);
+      background: linear-gradient(90deg, var(--forest-500), var(--forest-300));
+    }
+
+    .title-ja {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 700;
+      color: var(--ink);
+      /* 390px で「クリエイター」が行またぎした（金継ぎ そろい 2026-08-29）。文節で折る */
+      word-break: auto-phrase;
+    }
+
+    .title-en {
+      margin: 2px 0 0;
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 500;
+      color: var(--ink-soft);
+      letter-spacing: .01em;
+    }
+
+    /* ============================================================
+       カードの外
+       ============================================================ */
+
+    .lead {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--cream);
+    }
+
+    .lead .accent {
+      color: var(--leaf);
+      font-weight: 700;
+    }
+
+    .note {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--forest-300);
+    }
+
+    .links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 56px;
+      /* ワークショップ指定のタップ領域 */
+      padding: 10px 18px;
+      border-radius: var(--capsule);
+      /* カプセル */
+      /* 既定は輪郭線だけ。塗るのは本命1つ（.link--primary）に限る
+         — 金継ぎ 見立て問い9（2026-08-29）: 4つが同じ見た目で本命が読み取れなかった。
+         明るい膜は重ねない。重ねると補足文字が床4.5を割る（画素検査で .link-sub が比4.34）。 */
+      background: transparent;
+      border: 1px solid rgba(196, 227, 192, .30);
+      color: var(--cream);
+      text-decoration: none;
+      transition: background .18s ease, border-color .18s ease, transform .18s ease;
+    }
+
+    .link:hover,
+    .link:focus-visible {
+      background: rgba(28, 84, 64, .70);
+      border-color: var(--forest-300);
+    }
+
+    .link:active {
+      transform: translateY(1px);
+    }
+
+    .link:focus-visible {
+      outline: 3px solid var(--leaf);
+      outline-offset: 3px;
+    }
+
+    .link-mark {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--capsule);
+      background: rgba(45, 138, 96, .30);
+      color: var(--leaf);
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .link-text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .link-name {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .link-sub {
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--forest-300);
+    }
+
+    .link-arrow {
+      margin-left: auto;
+      flex: 0 0 auto;
+      color: var(--forest-300);
+      font-size: 15px;
+    }
+
+    /* 本命はSubstackの1つだけ。ここだけ塗って前に出す（2026-08-29 本人確定）。
+       塗りは検証済みの暗い森を使う。明るい緑で塗ると .link-sub が床4.5を割る
+       （forest-700 #23684E の上では比2.92）。 */
+    .link--primary {
+      background: rgba(19, 56, 40, .92);
+      border-color: var(--forest-300);
+      box-shadow: 0 8px 22px -12px rgba(0, 0, 0, .75);
+    }
+
+    .link--primary:hover,
+    .link--primary:focus-visible {
+      background: rgba(28, 84, 64, .80);
+    }
+
+    .link--primary .link-mark {
+      background: rgba(45, 138, 96, .48);
+    }
+
+    .foot {
+      margin: 0;
+      padding-top: 4px;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--forest-300);
+      text-align: center;
+    }
+
+    .foot a {
+      color: var(--forest-300);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .foot a:focus-visible {
+      outline: 3px solid var(--leaf);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ============================================================
+       読み込み時に一度だけ立ち上がる
+       ============================================================ */
+
+    @media (prefers-reduced-motion: no-preference) {
+      .rise {
+        animation: rise .5s cubic-bezier(.22, .8, .3, 1) both;
+      }
+
+      .rise-1 {
+        animation-delay: .04s;
+      }
+
+      .rise-2 {
+        animation-delay: .12s;
+      }
+
+      .rise-3 {
+        animation-delay: .18s;
+      }
+
+      .rise-4 {
+        animation-delay: .24s;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    }
+
+    /* ============================================================
+       画面が広いとき（スマホ版を中央に置いた拡張として扱う）
+       ============================================================ */
+
+    @media (min-width: 768px) {
+      :root {
+        --shell: 480px;
+      }
+
+      body {
+        padding-top: 64px;
+        padding-bottom: 64px;
+      }
+
+      .card {
+        padding: 24px;
+        gap: 22px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+    }
+
+    /* 極端に狭い端末では、比率よりも読めることを優先する */
+    @media (max-width: 340px) {
+      .card {
+        aspect-ratio: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="shell">
+
+    <!-- 名刺カード（1.6545 : 1） -->
+    <section class="card rise rise-1" aria-label="アースキーの名刺">
+      <div class="avatar" role="img" aria-label="アースキーのアバター"></div>
+      <div class="card-body">
+        <p class="brand">アースキーネットワーク</p>
+        <h1 class="name">アースキー</h1>
+        <div class="rule" aria-hidden="true"></div>
+        <p class="title-ja">現役病院薬剤師 × AIクリエイター</p>
+        <p class="title-en">Clinical Pharmacist × AI Builder</p>
+      </div>
+    </section>
+
+    <div class="rise rise-2">
+      <p class="lead">
+        AIを広めたいのではなく、医療現場の認知負荷を減らしたい。<br />
+        だから<span class="accent">「明日ひとつだけ安全に試せる」</span>形にして、毎日お届けしています。
+      </p>
+      <p class="note" style="margin-top:10px;">
+        病院で働きながら、現場の手間を減らす道具を自分で作っています。
+      </p>
+    </div>
+
+    <ul class="links rise rise-3">
+      <li>
+        <a class="link link--primary" href="https://earthkey.substack.com/?utm_campaign=digital_card" target="_blank"
+          rel="noopener noreferrer">
+          <span class="link-mark" aria-hidden="true">S</span>
+          <span class="link-text">
+            <span class="link-name">Substack</span>
+            <span class="link-sub">薬剤師 × AI の記事と、毎日の記録</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+      <li>
+        <a class="link" href="https://x.com/EarthGigantea" target="_blank" rel="noopener noreferrer">
+          <span class="link-mark" aria-hidden="true">X</span>
+          <span class="link-text">
+            <span class="link-name">X（旧Twitter）</span>
+            <span class="link-sub">現場で試したことを、その日のうちに</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+      <li>
+        <a class="link" href="/">
+          <span class="link-mark" aria-hidden="true">◎</span>
+          <span class="link-text">
+            <span class="link-name">earthkey.me</span>
+            <span class="link-sub">作品・教材・ポッドキャストの一覧</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+      <li>
+        <a class="link"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSebg3fvqJ4oOa0N0TdjCHtpiNYXuc8npVpRDbAmGXsQX_zgVQ/viewform?usp=header"
+          target="_blank" rel="noopener noreferrer">
+          <span class="link-mark" aria-hidden="true">✉</span>
+          <span class="link-text">
+            <span class="link-name">お問い合わせ</span>
+            <span class="link-sub">お仕事のご相談・ご質問はこちらから</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+    </ul>
+
+    <p class="foot rise rise-4">
+      アースキーネットワーク<br />
+      <a href="/legal/tokutei.html">特定商取引法に基づく表記</a>
+    </p>
+
+  </main>
+</body>
+
+</html>

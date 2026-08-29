@@ -9,29 +9,19 @@
     <meta property="og:title" content="アースキー / 現役病院薬剤師 × AIクリエイター" />
     <meta property="og:description" content="医療 × AI × DAO の交差点から発信する" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://earthkey-portfolio.vercel.app/" />
-    <meta property="og:image" content="https://earthkey-portfolio.vercel.app/assets/icons/AI_DAO_header2026.jpeg" />
+    <meta property="og:url" content="https://earthkey.me/" />
+    <meta property="og:image" content="https://earthkey.me/assets/icons/AI_DAO_header2026.jpeg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="アースキー / 現役病院薬剤師 × AIクリエイター" />
     <meta name="twitter:description" content="医療 × AI × DAO の交差点から発信する" />
-    <meta name="twitter:image" content="https://earthkey-portfolio.vercel.app/assets/icons/AI_DAO_header2026.jpeg" />
+    <meta name="twitter:image" content="https://earthkey.me/assets/icons/AI_DAO_header2026.jpeg" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
-    <!-- MailerLite Universal -->
-    <script>
-        (function (w, d, e, u, f, l, n) {
-            w[f] = w[f] || function () {
-                (w[f].q = w[f].q || [])
-                .push(arguments);
-            }, l = d.createElement(e), l.async = 1, l.src = u,
-            n = d.getElementsByTagName(e)[0], n.parentNode.insertBefore(l, n);
-        })
-            (window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
-        ml('account', '2277705');
-    </script>
-    <!-- End MailerLite Universal -->
+
+    <!-- 「TOPへ戻る」をスクロール後にだけ出すための印。JS無効なら印が立たず、従来どおり常時表示になる。 -->
+    <script>document.documentElement.dataset.scrollui = "1";</script>
 </head>
 
 <body id="top">
@@ -52,6 +42,7 @@
                         <a href="#about">About</a>
                         <a href="#works">Works</a>
                         <a href="blog/index.html">Blog</a>
+                        <a href="card/">名刺</a>
                     </nav>
                 </div>
             </header>
@@ -126,7 +117,8 @@
                             <div class="works-text">
                                 <p class="works-tag works-tag-featured">🥷 AI創作教材</p>
                                 <h4>クリプトニンジャAI創作スターターキット</h4>
-                                <p>CryptoNinjaのキャラクターを、公式の見た目のままAIで生成するための教材。登録キャラ全員ぶんの外見を言語化した辞書と、専用GPTs、イラスト・漫画・絵コンテの工程解説をまとめています。</p>
+                                <p>CryptoNinjaのキャラクターを、公式の見た目のままAIで生成するための教材。</p>
+                                <p>登録キャラ全員ぶんの外見を言語化した辞書と、専用GPTs、イラスト・漫画・絵コンテの工程解説をまとめています。</p>
                                 <a href="https://brmk.io/rnmJcc" target="_blank" rel="noopener noreferrer"
                                     class="works-link works-link-featured">教材を見る →</a>
                             </div>
@@ -207,16 +199,6 @@
                     </div>
                 </section>
 
-                <!-- Newsletter -->
-                <section id="newsletter" class="section container">
-                    <h3 class="text-center mb-8 section-header-styled">📬 メルマガ登録</h3>
-                    <div class="card text-center">
-                        <p style="color: #374151; margin-bottom: 1.5rem;">医療 × AI × DAO
-                            の最新情報をメールでお届けします。<br>登録無料・いつでも解除できます。</p>
-                        <div class="ml-embedded" data-form="ParZQ3"></div>
-                    </div>
-                </section>
-
                 <!-- Contact -->
                 <section id="contact" class="section container">
                     <h3 class="text-center mb-8 section-header-styled">Contact</h3>
@@ -245,7 +227,7 @@
             </div>
 
             <footer class="footer">
-                <p><a href="index.html">Home</a> | <a href="legal/tokutei.html">特定商取引法に基づく表記</a> | © EarthKey | AI
+                <p><a href="index.html">Home</a> | <a href="card/">デジタル名刺</a> | <a href="legal/tokutei.html">特定商取引法に基づく表記</a> | © EarthKey | AI
                     Pharmacist × DAO</p>
             </footer>
         </main>
@@ -311,6 +293,21 @@
                     targets.forEach(function (el) { io.observe(el); });
                 });
             });
+        })();
+
+        /* 「TOPへ戻る」は、1画面ぶんスクロールしてから出す。
+           2026-08-29 金継ぎ診断: ページ最上部でこのボタンがヒーローの紹介文に重なり、
+           画素検査で比3.98（床4.5）の違反になっていた（elementFromPoint で実測）。
+           戻る先が無い位置で本文を隠すのは損しかないので、出す条件を付けた。 */
+        (function () {
+            const btn = document.querySelector('.back-to-top');
+            if (!btn) return;
+            const show = function () {
+                btn.classList.toggle('is-shown', window.scrollY > window.innerHeight * 0.6);
+            };
+            show();
+            window.addEventListener('scroll', show, { passive: true });
+            window.addEventListener('resize', show, { passive: true });
         })();
     </script>
 </body>

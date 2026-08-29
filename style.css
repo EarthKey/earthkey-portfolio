@@ -1130,3 +1130,158 @@ section[id] {
 .works-card-featured .works-link.works-link-featured:hover {
     color: var(--vermilion-600);
 }
+
+/* ══════════════════════════════════════════════════════════════
+   金継ぎ 追補スタイル（2026-08-29 適用）
+   出所: kintsugi スキルの診断 → 写しへの修理デモ → 本人承認
+   記録: 金継ぎの診断書（ローカル・非公開）
+         SHINDAN-20260829.md / compare.html（金の継ぎ目スライダー）
+
+   実測（1280 / 768 / 390）:
+     散らかり度 58 / 58 / 58  →  16 / 20 / 20   （合格線は30未満）
+     定番度     33            →  8
+     低コントラスト 6件        →  0件
+     delta      改善9項目 / 悪化0項目
+
+   ⚠ この節は既存の規則を「後から上書き」する層として書いてある。
+     :root の変数（Forest Palette）は一切触っていない。
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── 破れ: 低コントラスト6件 ──
+   出所はすべて --forest-500 #2D8A60（白地・白文字とも比4.27／床4.5）。
+   変数は15箇所で共有しているため元栓は触らず、当たっている3つの規則だけ上書きする。 */
+.btn-primary { background: var(--forest-800); }          /* 白文字 × #1C5440 = 比8.8 */
+.btn-primary:hover { background: var(--forest-950); }
+.works-link { color: var(--forest-800); }                /* #1C5440 × 白 = 比8.8 */
+.card a[href="about.html"] { color: var(--forest-800) !important; }  /* index.html:194 のインライン指定 */
+
+/* ── 乱れ: 似て非なる色 ──
+   🔴 自動処方は #DCEFE3（ナビの輪郭）と #F2F8F3（フッターの文字）も白へ寄せろと言うが、
+      どちらも Forest Palette の役割色（頭と足元）なので却下した。
+      代わりに、役割を持たない Tailwind の残骸 #E5E7EB を「白」ではなくパレット側へ寄せる。 */
+.card,
+.channel-card { border-color: var(--forest-100); }       /* #E5E7EB → #DCEFE3 */
+.works-card-featured h4 { color: var(--vermilion); }     /* #A93226 → #C0392B（朱の2階調を1本に） */
+.card p[style*="374151"] { color: #334155 !important; }  /* index.html:215 のインライン指定 */
+
+/* ── 乱れ: 文字サイズの段数過多（役割内の割れ・15段 → 9段） ── */
+.profu-link-btn .btn-icon { font-size: 27px; }
+.back-to-top-icon { font-size: 18px; }
+.back-to-top-label { font-size: 18px; }
+.site-brand-subtitle { font-size: 14px; }
+.story-highlight { font-size: 18px !important; }
+.about-summary { font-size: 18px; }
+.works-tag { font-size: 15.3px; }
+.channel-card h4 { font-size: 21.6px; }
+.card > div > a[style*="1.15rem"] { font-size: 18px !important; }   /* index.html:181 */
+.card > h4[style*="1.25rem"] { font-size: 21.6px !important; }
+
+/* ── 乱れ: 角丸 7種 → 4種（10 / 16 / 999 へ統合） ── */
+.works-thumb img { border-radius: 10px; }
+.profu-link-btn { border-radius: 10px; }
+.site-brand-icon { border-radius: 16px; }
+.hero-section img[style*="12px"] { border-radius: 10px !important; }
+
+/* ── ずれ: 言葉の泣き別れ（390pxで「ステージ」「アースキー」が行またぎ） ── */
+.works-text p,
+.story-closing { word-break: auto-phrase; }
+
+/* ══ 型紙（AIの既製品らしさ・定番度 33 → 8）══
+   english-labels（Works / About / STORY / Contact）は文言の話なので、
+   本人の判断で英語のまま残している。 */
+
+/* [dual-cta] 最初の画面のボタンは1つに。2つ目は文中のリンクへ格下げする（行き先とDOMは不変）。
+   ⚠ 枠を消すと箱が上下左右2pxずつ縮んで上のボタンと左端が揃わなくなるため
+     （実測: 惜しい整列ズレ 0→1）、消した2pxを余白で埋めて寸法を元と同じに保つ。
+     枠を transparent で残す手もあるが、それだと「ボタンの形」のままで型紙が消えない。 */
+.btn-secondary {
+    background: transparent;
+    border: none;
+    padding: 14px 30px;
+    color: var(--forest-800);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.btn-secondary:hover {
+    background: transparent;
+    text-decoration: underline;
+}
+
+/* [glass] ガラス調（背景ぼかし）をやめて不透明の面に。
+   地は白。--forest-50 で試したところ、その上の .site-brand-subtitle（#64748B）が
+   比4.42となり床4.5を割った。白なら比4.76で通り、白は既に最大面積の色なので色数も増えない。 */
+.site-header {
+    background: #FFFFFF;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* [reveal] スクロールでふわっと出す演出を外す。14箇所すべてに掛かっており、
+   全部に掛かると何も特別でなくなる。要素は初期状態から表示する（JSは触らない）。 */
+.reveal,
+.reveal.d1,
+.reveal.d2,
+.reveal.d3 {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+}
+
+/* ── 「TOPへ戻る」は、スクロールするまで出さない ──
+   実測（elementFromPoint・390px）: ページ最上部でこのボタンがヒーローの紹介文に重なり、
+   画素検査で比3.98（床4.5）の違反になっていた。戻る先が無い位置で本文を隠すのは損しかない。
+   ⚠ 印 data-scrollui は head の一行スクリプトが立てる。JS無効なら印が立たず、
+     この規則自体が当たらない＝従来どおり常時表示になる（退避）。 */
+html[data-scrollui] .back-to-top {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+html[data-scrollui] .back-to-top.is-shown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* ── 金継ぎ 第2巡（2026-08-29・about.html）──
+   .profile-table td a が --forest-500 #2D8A60（白地で比4.27／床4.5）。
+   LPトップの .works-link と同じ根なので、同じ寄せ先（forest-800・比8.8）へ。 */
+.profile-table td a { color: var(--forest-800); }
+
+/* 角丸 4種 → 3種。⚠ .about-profile-img（16px）は別の段なので触らない
+   （最初に .section > div > img で一括指定して16px→10pxへ動かしてしまった） */
+.btn-ai-partners { border-radius: 10px; }
+
+/* 文字サイズ 役割「釦」3段 → 2段。17.1px を一番使われている 18px へ寄せる。
+   25.2px（.btn-ai-partners-icons）は絵文字アイコン＝図なので触らない */
+.btn-ai-partners-text { font-size: 18px; }
+
+/* ══ 金継ぎ 第3巡（2026-08-29・再診断→修理）══
+   写しで前後を測ってから本体へ入れた。トップ 16→8 / works 24→4（1280/768/390）。
+   診断書: 金継ぎ SHINDAN-20260829.md（ローカル・非公開） */
+
+/* ── 乱れ: 文字サイズの段数過多（役割「ボタン」4段 → 3段）──
+   14(肩書き) / 18(ブランド名) / 27(ヘッダーの記号・ボタン内の絵文字) / 36(発信チャンネルの記号)。
+   記号どうしを1段に寄せる。寄せ先は小さい側＝ヘッダーの記号を大きくすると頭が重くなり、
+   ボタン内の絵文字を36pxにすると隣の18pxの文字を食うため。
+   ⚠ 14と18は残す（役割が違い、揃えると名前と肩書きの上下関係が消える。4点は承知で残す） */
+.channel-icon { font-size: 1.5rem; }
+
+/* ── 乱れ: 角丸の種類過多（4種 → 3種）── 解消済み（2026-08-29）
+   4pxの出どころはメルマガ欄（MailerLiteの埋め込みCSS）だけだった。
+   同日、Substackへ一本化するためMailerLiteを撤去したので、4pxの発生源ごと消えた。
+   ここに置いていた上書き（#フォームID頼みの応急処置）は不要になったので外した。 */
+
+/* ── 乱れ: 段落なし（狭い幅で20点）──
+   長い一段を句点で割ったのは index.html / works/index.html 側（CSSでは割れない）。
+   ここでは割れた段落の間だけ空ける。 */
+.works-text p + p { margin-top: 0.7em; }

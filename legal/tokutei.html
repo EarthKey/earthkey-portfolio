@@ -9,8 +9,8 @@
     <meta property="og:title" content="特定商取引法に基づく表記 | EarthKey" />
     <meta property="og:description" content="EarthKey（アースキー）が提供するデジタルコンテンツおよび関連サービスに関する、特定商取引法に基づく表示です。" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://earthkey-portfolio.vercel.app/legal/tokutei.html" />
-    <meta property="og:image" content="https://earthkey-portfolio.vercel.app/assets/icons/0-CAST-1a_cleanup.png" />
+    <meta property="og:url" content="https://earthkey.me/legal/tokutei.html" />
+    <meta property="og:image" content="https://earthkey.me/assets/icons/0-CAST-1a_cleanup.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="stylesheet" href="../style.css" />
@@ -54,7 +54,8 @@
 
         .contact-btn {
             display: inline-block;
-            background: var(--forest-500);
+            /* 2026-08-29 金継ぎ: forest-500 では白文字の比が 4.27 で床4.5を割っていた。forest-800 で比8.8 */
+            background: var(--forest-800);
             color: white;
             padding: 12px 24px;
             border-radius: 8px;
@@ -128,8 +129,8 @@
                     <!-- サイトURL -->
                     <section class="card legal-section">
                         <h3>サイトURL</h3>
-                        <p><a href="https://earthkey-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"
-                                style="color: #4ade80; text-decoration: none;">https://earthkey-portfolio.vercel.app/</a>
+                        <p><a href="https://earthkey.me/" target="_blank" rel="noopener noreferrer"
+                                style="color: var(--forest-800); text-underline-offset: 3px;">https://earthkey.me/</a>
                         </p>
                     </section>
 

@@ -5,3 +5,10 @@ node_modules/
 .vscode/
 .idea/
 .vercel
+
+# Cloudflare（アカウントIDが入るのでGitへ入れない。このリポジトリはpublic）
+.wrangler/
+
+# 作業中に取った退避コピー
+*.bak
+*.bak_*

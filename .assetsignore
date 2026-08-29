@@ -1,0 +1,16 @@
+.git
+.gitignore
+.vercel
+.assetsignore
+wrangler.jsonc
+vercel.json
+AGENTS.md
+_docs
+temp_snip.txt
+style-backup.css
+test-modal.html
+node_modules
+.wrangler
+wrangler.jsonc.bak
+.assetsignore.bak_20260829
+card/profile-original.jpg
