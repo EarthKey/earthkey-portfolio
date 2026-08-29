@@ -322,10 +322,15 @@ section[id] {
 }
 
 .character-thumb {
+    /* 2026-08-30: 丸い切り抜きをやめた（金継ぎ 型紙 hero-crop-circle）。
+       この絵は「キャラ色の枠」「名前のサイン」「薬局の背景」まで含めて1枚の作品で、
+       円で抜くと枠が光の輪に見え、サインの端が切れ、ペンを持つ手も欠けていた。
+       画像は1024x1024の正方形なので、角丸にするだけで全部見える（歪まない）。
+       角丸はページに既にある16pxを使う＝種類を増やさない。 */
     width: 250px;
     height: 250px;
     object-fit: cover;
-    border-radius: 999px;
+    border-radius: 16px;
     margin-bottom: 12px;
 }
 
@@ -1467,4 +1472,16 @@ html[data-scrollui] .back-to-top.is-shown {
     .bgm-group { padding: 16px 12px 16px; }
     .bgm-track { gap: 10px; }
     .bgm-time { font-size: 0.9rem; }
+}
+
+/* ── 型紙 center-share の是正（2026-08-30・/ai-partners/ だけに当てる）──
+   「本文は左揃えに。中央揃えは見出しだけ」。中央揃えの本文は行頭が毎行ずれるので、
+   2行以上になると読みにくい（390pxでは各段落が2〜3行になる）。
+   見出しと歓迎ボックス（3行の飾り）は中央のまま残す。
+   ⚠ .hero-section は全ページ共有なので、この修飾クラスが付いた節にだけ効かせる。 */
+.hero-section--readable > p {
+    text-align: left;
+    max-width: 34em;
+    margin-left: auto;
+    margin-right: auto;
 }
