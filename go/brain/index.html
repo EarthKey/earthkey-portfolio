@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brainへ移動しています | アースキー</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .go-wrap {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .go-inner p {
+            margin: 10px 0;
+        }
+
+        .go-sub {
+            font-size: .88rem;
+            opacity: .75;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="forest-bg">
+        <main class="page-content">
+            <div class="page-sections">
+                <section class="section container go-wrap">
+                    <div class="go-inner">
+                        <p>Brain（外部サイト）へ移動しています…</p>
+                        <p class="go-sub">自動で切り替わらない場合は、下のボタンを押してください。</p>
+                        <p style="margin-top:18px;">
+                            <a href="https://brmk.io/rnmJcc" class="btn-primary" id="go-link" rel="noopener noreferrer">クリプトニンジャAI創作スターターキットへ →</a>
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <footer class="footer">
+                <p><a href="../../index.html">Home</a> | <a href="../../legal/tokutei.html">特定商取引法に基づく表記</a> | © EarthKey | AI Pharmacist × DAO</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // 計測のためのワンクッション。解析ビーコンが発火する時間だけ待ってから転送する。
+        // 302リダイレクトにするとHTMLが描画されず、Cloudflare Web Analytics が数えられないため
+        // このページ自体を1枚挟んでいる（設計の根拠: 0905のオモダカ #87）。
+        setTimeout(function () {
+            window.location.replace('https://brmk.io/rnmJcc');
+        }, 900);
+    </script>
+</body>
+
+</html>

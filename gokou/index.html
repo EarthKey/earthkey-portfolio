@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>同じキャラが毎回ちがう顔で出てくる理由 | アースキー</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>" />
+    <meta property="og:title" content="同じキャラが毎回ちがう顔で出てくる理由 | アースキー" />
+    <meta property="og:description" content="画像生成で同じキャラが毎回ちがう顔になる原因を、2年半で47人ぶん書いて分かった3つにまとめました。CryptoNinja #040 ゴコウのプロンプト全文つき。" />
+    <meta name="description" content="画像生成で同じキャラが毎回ちがう顔になる原因を、2年半で47人ぶん書いて分かった3つにまとめました。CryptoNinja #040 ゴコウのプロンプト全文つき。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://earthkey.me/gokou/" />
+    <meta property="og:image" content="https://earthkey.me/assets/gokou/gokou_sample.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://earthkey.me/assets/gokou/gokou_sample.webp" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .prompt-box {
+            background: rgba(20, 30, 24, .72);
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin: 18px 0 10px;
+        }
+
+        .prompt-box code {
+            display: block;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: .92rem;
+            line-height: 1.85;
+            word-break: break-word;
+            white-space: pre-wrap;
+            color: #eaf3ec;
+        }
+
+        .copy-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        .copy-note {
+            font-size: .85rem;
+            opacity: .75;
+        }
+
+        .rule-list {
+            margin: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .rule-list li {
+            margin-bottom: 22px;
+        }
+
+        .rule-list h4 {
+            margin: 0 0 6px;
+            font-size: 1.05rem;
+        }
+
+        .rule-list p {
+            margin: 0 0 4px;
+        }
+
+        .rule-bad,
+        .rule-good {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: .88rem;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .rule-bad {
+            background: rgba(180, 60, 60, .22);
+        }
+
+        .rule-good {
+            background: rgba(70, 150, 90, .22);
+        }
+
+        .sample-figure {
+            margin: 26px 0 8px;
+            text-align: center;
+        }
+
+        .sample-figure img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .14);
+        }
+
+        .sample-figure figcaption {
+            font-size: .87rem;
+            opacity: .8;
+            line-height: 1.8;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .fanmade-note {
+            font-size: .84rem;
+            opacity: .78;
+            line-height: 1.8;
+            margin-top: 26px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="forest-bg">
+        <main class="page-content">
+
+            <header class="site-header">
+                <h1>アースキー | 現役病院薬剤師 × AIクリエイター</h1>
+                <nav class="main-nav">
+                    <a href="../index.html">Home</a>
+                    <a href="../about.html">About</a>
+                    <a href="../works/index.html">Works</a>
+                    <a href="../blog/index.html">Blog</a>
+                </nav>
+            </header>
+
+            <div class="page-sections">
+
+                <section class="hero-section">
+                    <h2>同じキャラが、毎回ちがう顔で出てくる理由</h2>
+                    <p>2年半かけて CryptoNinja 47人ぶんの外見を言葉にしてきて、崩れる原因はほとんど同じ3つでした。実例つきで置いておきます。ゴコウのプロンプト全文もこのページにあります。</p>
+                </section>
+
+                <section class="section container">
+                    <div class="card">
+                        <h3>毎回おなじ顔で出すための、3つの決め事</h3>
+                        <p>どれもAIの性能ではなく、渡す言葉の側の問題でした。</p>
+
+                        <ul class="rule-list">
+                            <li>
+                                <h4>1. 「書いてあるけれど、決まっていない」言葉をなくす</h4>
+                                <p>いちばん多い原因です。書いてあるのに毎回変わるなら、その言葉はまだ何も決めていません。</p>
+                                <p><span class="rule-bad">片目に眼帯</span> → どちらの目か決まっていない。生成のたびに左右が入れ替わります。</p>
+                                <p><span class="rule-good">見ている人から見て右の目に眼帯</span> → ここまで書くと、以後ずれません。</p>
+                            </li>
+                            <li>
+                                <h4>2. 雰囲気の言葉を入れない</h4>
+                                <p>それらしくなる気がして足したくなりますが、雰囲気の言葉は<strong>絵柄そのものを引っぱります</strong>。同じキャラなのに毎回ちがうタッチで出てくるときは、たいていこれが原因です。</p>
+                                <p><span class="rule-bad">sleek assassin silhouette</span> → 画風のほうが動いてしまう。</p>
+                                <p><span class="rule-good">目に見える特徴だけを書く</span> → 髪の色、目の色、服の形。見えるものだけにします。</p>
+                            </li>
+                            <li>
+                                <h4>3. 同じ説明を2か所に置かない</h4>
+                                <p>正本が2つあると、片方だけ直したときに真逆の記述が並びます。気づかないまま使い続けることになるので、<strong>キャラの外見を書く場所は1か所に決める</strong>のが安全です。</p>
+                            </li>
+                        </ul>
+
+                        <p><strong>この3つは、キャラクターに限りません。</strong>毎回すこしずつ違うものが出てくる作業を持っている人なら、渡している言葉のどこかがまだ決まっていないだけです。</p>
+                    </div>
+                </section>
+
+                <section class="section container">
+                    <div class="card">
+                        <h3>ゴコウのプロンプト（Xに載せたものと同じです）</h3>
+                        <p>ChatGPT や Gemini など、画像を作れるAIの入力欄にそのまま貼ってください。参照画像は要りません。</p>
+
+                        <div class="prompt-box">
+                            <code id="gokou-prompt">1boy, male focus, young man, sharp eyes, orange eyes, orange-tinted eyewear, sunglasses, sharp teeth, fangs, spiky hair, short_hair, multicolored hair, black hair, blonde hair, center-parted hair, blonde bangs, black side hair, yellow streaked hair, messy hair, spiky black hair, black outfit, black jacket, open jacket, high collar, orange inner collar, orange trim, patterned jacket, centipede pattern, insect motif, black kimono, teal inner shirt, black pants, belt, streetwear,</code>
+                        </div>
+                        <div class="copy-row">
+                            <button class="btn-secondary" type="button" id="copy-btn">プロンプトをコピー</button>
+                            <span class="copy-note" id="copy-note"></span>
+                        </div>
+
+                        <figure class="sample-figure">
+                            <img src="../assets/gokou/gokou_sample.webp"
+                                alt="上のプロンプトだけで生成したゴコウ。黒と金のツンツン髪、橙色のサングラス、袖の百足の刺繍、橙色の裏襟。"
+                                width="1024" height="1536" loading="lazy" />
+                            <figcaption>
+                                <strong>上のプロンプトだけで出た絵です。</strong>参照画像も、追加の指示も使っていません。
+                                画風の指定を足していないので、お使いのAIによって絵柄は変わります。
+                            </figcaption>
+                        </figure>
+
+                        <p style="margin-top:18px;">
+                            うまく出ないときは、日本語で「アニメ塗りで」「上半身だけ」のように<strong>足したい条件を後ろに書き足す</strong>と通ります。
+                            並べ替えたり途中の語を消したりすると崩れやすくなるので、<strong>足すのは末尾</strong>にしてください。
+                        </p>
+                    </div>
+                </section>
+
+                <section class="section container">
+                    <div class="card">
+                        <h3>ほかのキャラクターも言葉で持っておきたい方へ</h3>
+                        <p>
+                            同じ形式で、CryptoNinja 47人ぶんの外見を言葉にした辞書を教材にまとめています。
+                            公式サイトにまだ載っていないキャラクターも含めて、参照画像なしで再現できます。
+                        </p>
+                        <p>
+                            <a href="../go/brain/" class="btn-primary">クリプトニンジャAI創作スターターキットを見る →</a>
+                        </p>
+                        <p class="copy-note">Brain（外部サイト）へ移動します。自分の商品への広告リンクです。</p>
+
+                        <p class="fanmade-note">
+                            ゴコウは、NinjaDAOの『CryptoNinja』というキャラクターのひとりです。根の国の忍で、百足（ムカデ）をモチーフにしています。ファンとしてお借りして作りました。<br>
+                            本ページはファンメイドの内容です。CryptoNinjaはNinjaDAOのキャラクターであり、本ページは公式ガイドラインの範囲で制作した非公式の二次創作です。
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+
+            <footer class="footer">
+                <p><a href="../index.html">Home</a> | <a href="../legal/tokutei.html">特定商取引法に基づく表記</a> | © EarthKey | AI Pharmacist × DAO</p>
+            </footer>
+        </main>
+
+        <div class="leaf-layer" id="leaf-layer"></div>
+    </div>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('copy-btn');
+            const note = document.getElementById('copy-note');
+            const src = document.getElementById('gokou-prompt');
+            if (!btn || !src) return;
+            btn.addEventListener('click', function () {
+                navigator.clipboard.writeText(src.textContent.trim()).then(function () {
+                    note.textContent = 'コピーしました';
+                    setTimeout(function () { note.textContent = ''; }, 2500);
+                }).catch(function () {
+                    note.textContent = 'コピーできませんでした。手で選択してください';
+                });
+            });
+        })();
+        (function () {
+            const leafLayer = document.getElementById('leaf-layer');
+            if (!leafLayer) return;
+            for (let i = 0; i < 20; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                leaf.style.left = (Math.random() * 100) + 'vw';
+                leaf.style.animationDelay = (Math.random() * 5) + 's';
+                leaf.style.animationDuration = (8 + Math.random() * 6) + 's';
+                leafLayer.appendChild(leaf);
+            }
+        })();
+    </script>
+</body>
+
+</html>
