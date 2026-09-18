@@ -1231,6 +1231,60 @@ section[id] {
     -webkit-backdrop-filter: none;
 }
 
+/* ============================================
+   LINEスタンプ カード — LINE公式ブランドグリーンで強調
+   2026-09-18 追加。朱色（--vermilion）はBrain教材の「本命」表示に
+   使用済みのため、同じ意味に見えないよう別の色を当てる。
+   ============================================ */
+:root {
+    --line-green: #06C755;
+    --line-green-600: #04A945;
+    --line-green-50: #F2FDF6;
+}
+
+.works-card.works-card-line {
+    border: 2px solid var(--line-green);
+    background: linear-gradient(180deg, var(--line-green-50) 0%, #FFFFFF 55%);
+    box-shadow: 0 10px 28px -14px rgba(6, 199, 85, 0.45);
+}
+
+.works-card.works-card-line:hover {
+    border-color: var(--line-green-600);
+    box-shadow: 0 20px 40px -14px rgba(6, 199, 85, 0.45);
+}
+
+.works-card-line .works-tag {
+    background: var(--line-green);
+    color: #FFFFFF;
+}
+
+.works-card-line h4 {
+    color: var(--line-green-600);
+}
+
+.works-card-line .works-link {
+    color: var(--line-green-600);
+    font-weight: 700;
+}
+
+.works-card-line .works-link:hover {
+    color: var(--line-green);
+}
+
+.works-gif-row {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.works-gif-row img {
+    width: 84px;
+    height: auto;
+    border-radius: 10px;
+    background: var(--line-green-50);
+}
+
 /* [reveal] スクロールでふわっと出す演出を外す。14箇所すべてに掛かっており、
    全部に掛かると何も特別でなくなる。要素は初期状態から表示する（JSは触らない）。 */
 .reveal,
