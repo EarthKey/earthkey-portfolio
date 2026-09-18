@@ -355,6 +355,39 @@
       background: rgba(45, 138, 96, .48);
     }
 
+    /* 個別の枠色（2026-09-18 本人指定）。お問い合わせだけ既定の森色のまま。 */
+    .link--substack {
+      border-color: #FF6719;
+      /* Substack公式のオレンジ */
+    }
+
+    .link--substack:hover,
+    .link--substack:focus-visible {
+      border-color: #FF6719;
+    }
+
+    .link--x {
+      border-color: #1D9BF0;
+      /* X（旧Twitter）の青 */
+    }
+
+    .link--x:hover,
+    .link--x:focus-visible {
+      background: rgba(29, 155, 240, .14);
+      border-color: #1D9BF0;
+    }
+
+    .link--line {
+      border-color: #9ACD32;
+      /* 黄緑 */
+    }
+
+    .link--line:hover,
+    .link--line:focus-visible {
+      background: rgba(154, 205, 50, .14);
+      border-color: #9ACD32;
+    }
+
     .foot {
       margin: 0;
       padding-top: 4px;
@@ -474,7 +507,7 @@
 
     <ul class="links rise rise-3">
       <li>
-        <a class="link link--primary" href="https://earthkey.substack.com/?utm_campaign=digital_card" target="_blank"
+        <a class="link link--primary link--substack" href="https://earthkey.substack.com/?utm_campaign=digital_card" target="_blank"
           rel="noopener noreferrer">
           <span class="link-mark" aria-hidden="true">S</span>
           <span class="link-text">
@@ -485,7 +518,7 @@
         </a>
       </li>
       <li>
-        <a class="link" href="https://x.com/EarthGigantea" target="_blank" rel="noopener noreferrer">
+        <a class="link link--x" href="https://x.com/EarthGigantea" target="_blank" rel="noopener noreferrer">
           <span class="link-mark" aria-hidden="true">X</span>
           <span class="link-text">
             <span class="link-name">X（旧Twitter）</span>
@@ -495,11 +528,11 @@
         </a>
       </li>
       <li>
-        <a class="link" href="https://line.me/S/sticker/36694718" target="_blank" rel="noopener noreferrer">
+        <a class="link link--line" href="https://line.me/S/sticker/36694718" target="_blank" rel="noopener noreferrer">
           <span class="link-mark" aria-hidden="true">📱</span>
           <span class="link-text">
-            <span class="link-name">CryptoNinja 動く甲賀の仲間たち</span>
-            <span class="link-sub">動くLINEスタンプ24点・LINE STOREへ</span>
+            <span class="link-name">LINE スタンプ</span>
+            <span class="link-sub">CryptoNinja 動く甲賀の仲間たち</span>
           </span>
           <span class="link-arrow" aria-hidden="true">→</span>
         </a>
