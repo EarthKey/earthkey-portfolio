@@ -5,6 +5,8 @@
   // 2026-08-19 独自ドメイン earthkey.me を紐付け（apex + www）。
   "name": "earthkey-portfolio",
   "compatibility_date": "2026-08-18",
+  // ローカル確認のポート固定（2026-10-25）。既定8787はcloverと重なる。台帳: ボルト 09_AI-Tool/ローカルポート台帳.csv
+  "dev": { "ip": "127.0.0.1", "port": 8791 },
   "assets": {
     "directory": "./",
     "not_found_handling": "404-page"
