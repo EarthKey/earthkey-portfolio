@@ -29,6 +29,7 @@
             opacity: .75;
         }
     </style>
+    <script src="../../assets/material-tracking.js" defer></script>
 </head>
 
 <body>
@@ -56,6 +57,7 @@
         // 302リダイレクトにするとHTMLが描画されず、Cloudflare Web Analytics が数えられないため
         // このページ自体を1枚挟んでいる（設計の根拠: 0905のオモダカ #87）。
         setTimeout(function () {
+            window.dispatchEvent(new CustomEvent('rondo-brain-outbound', { detail: 'ninja-starter' }));
             window.location.replace('https://brmk.io/rnmJcc');
         }, 900);
     </script>
