@@ -3,11 +3,9 @@
   'use strict';
   const endpoint = 'https://rondo.earthkey.workers.dev/ingest/material-click';
   const ids = {
-    'https://brmk.io/EYcuJ3': 'uradori',
     'https://brmk.io/camtep': 'ninja-illustration',
     'https://brmk.io/Yomaek': 'medical-review',
     'https://brmk.io/rnmJcc': 'ninja-starter',
-    'https://brain-market.com/u/earthkey/a/b2kTN3YjMgoTZsNWa0JXY': 'uradori',
     'https://brain-market.com/u/earthkey/a/bykTN3YjMgoTZsNWa0JXY': 'ninja-illustration',
     'https://brain-market.com/u/earthkey/a/b0QjM0YjMgoTZsNWa0JXY': 'medical-review',
     'https://brain-market.com/u/earthkey/a/bxcDO4UjMgoTZsNWa0JXY': 'ninja-starter',

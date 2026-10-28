@@ -864,7 +864,6 @@ section[id] {
     display: block;
 }
 
-.works-card-uradori .works-inner,
 .works-card-product .works-inner {
     align-items: flex-start;
 }
@@ -873,13 +872,11 @@ section[id] {
     scroll-margin-top: 240px;
 }
 
-.works-card-uradori .works-thumb,
 .works-card-product .works-thumb {
     width: 320px;
     max-width: 100%;
 }
 
-.works-card-uradori .works-thumb img,
 .works-card-product .works-thumb img {
     width: 100%;
 }
