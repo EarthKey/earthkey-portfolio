@@ -723,6 +723,91 @@ section[id] {
     margin: 0;
 }
 
+/* --- 発信チャンネルの主従（2026-10-28）---
+   主はSubstack 1枚。色と太枠で主を示し、XとYouTubeは従のまま。
+   サイズ・角丸は金継ぎで決めた段（文字 15.3/18/21.6、角丸 10/16/999）の中から選ぶ。 */
+.channel-grid-main {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.channel-card-main {
+    border: 2px solid var(--forest-500);
+    background: var(--forest-50);
+}
+
+/* 薄緑の地で #64748B は比4.42と床を割るため、既存の濃い灰へ */
+.channel-card-main p {
+    color: #334155;
+}
+
+/* 釦の段（14/18/27）に載せる。15.3だと段が1つ増える */
+.channel-cta {
+    margin-top: 12px;
+    color: var(--forest-800);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.channel-video {
+    max-width: 720px;
+    margin: 32px auto 0;
+}
+
+/* 写真の地の上に直接置くと白文字が比3.0まで落ちる。節見出しと同じく白い面に載せる */
+.channel-video-label {
+    display: table;
+    margin: 0 auto 12px;
+    padding: 6px 20px;
+    border-radius: 999px;
+    background: #FFFFFF;
+    color: var(--forest-800);
+    font-weight: 700;
+    font-size: 15.3px;
+}
+
+.channel-video-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--forest-800);
+}
+
+.channel-video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* 残りの媒体は文字だけの小さな列へ（主従を崩さないため、カードにしない）。
+   写真の地では比が4.4まで落ちるので、濃い緑の帯に載せる */
+.channel-others {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px 20px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 28px auto 0;
+    padding: 10px 24px;
+    border-radius: 16px;
+    background: var(--forest-800);
+    font-size: 14px;   /* リンクは釦の段（14/18/27）に数えられる。従の列なので小さい側へ */
+}
+
+.channel-others-label {
+    color: var(--forest-100);
+}
+
+.channel-others a {
+    color: #FFFFFF;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
 /* --- Works --- */
 .works-inner {
     display: flex;
@@ -777,6 +862,26 @@ section[id] {
     height: auto;
     border-radius: 8px;
     display: block;
+}
+
+.works-card-uradori .works-inner,
+.works-card-product .works-inner {
+    align-items: flex-start;
+}
+
+#brain-products {
+    scroll-margin-top: 240px;
+}
+
+.works-card-uradori .works-thumb,
+.works-card-product .works-thumb {
+    width: 320px;
+    max-width: 100%;
+}
+
+.works-card-uradori .works-thumb img,
+.works-card-product .works-thumb img {
+    width: 100%;
 }
 
 /* --- About Summary --- */

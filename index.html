@@ -22,6 +22,7 @@
 
     <!-- 「TOPへ戻る」をスクロール後にだけ出すための印。JS無効なら印が立たず、従来どおり常時表示になる。 -->
     <script>document.documentElement.dataset.scrollui = "1";</script>
+    <script src="assets/material-tracking.js" defer></script>
 </head>
 
 <body id="top">
@@ -59,78 +60,65 @@
                         <span class="hero-badge">🤖 AIクリエイター</span>
                         <span class="hero-badge">🥷 NinjaDAO</span>
                     </div>
-                    <p>AIツールを日常的に実践・発信。Note・Podcast・Xを中心に、<br>医療従事者目線のAI活用情報をお届けしています。</p>
+                    <p>現場の困りごとを観察して言語化する、病院薬剤師です。<br>「明日ひとつだけ安全に試せる」AIの使い方を、Substack・X・YouTubeで届けています。</p>
                     <div class="hero-actions">
+                        <a href="https://earthkey.substack.com/?utm_source=earthkey_lp" target="_blank"
+                            rel="noopener noreferrer" class="btn-primary">📥 Substackで無料で読む</a>
                         <a href="https://x.com/EarthGigantea" target="_blank" rel="noopener noreferrer"
-                            class="btn-primary">𝕏 をフォロー</a>
-                        <a href="https://earthkey.substack.com/?utm_campaign=profile_chips" target="_blank"
-                            rel="noopener noreferrer" class="btn-primary">📥 Substackをフォロー</a>
-                        <a href="https://note.com/rain_cure" target="_blank" rel="noopener noreferrer"
-                            class="btn-secondary">Note を読む</a>
+                            class="btn-secondary">𝕏 をフォロー</a>
                     </div>
                 </section>
 
-                <!-- 発信チャンネル -->
+                <!-- 発信チャンネル（主: Substack／従: X・YouTube。2026-10-28） -->
                 <section class="section container">
                     <h3 class="text-center mb-8 section-header-styled">発信チャンネル</h3>
-                    <div class="channel-grid">
-                        <a href="https://note.com/rain_cure" target="_blank" rel="noopener noreferrer"
-                            class="channel-card">
-                            <span class="channel-icon">📝</span>
-                            <h4>Note</h4>
-                            <p>医療×AI×DAOをテーマに記事を執筆</p>
-                        </a>
-                        <a href="https://open.spotify.com/show/7LGLjfiuN0KRHUEuDtuksG" target="_blank"
-                            rel="noopener noreferrer" class="channel-card">
-                            <span class="channel-icon">🎙</span>
-                            <h4>Podcast</h4>
-                            <p>薬剤師・AI・DAOを音声で配信中</p>
+                    <div class="channel-grid channel-grid-main">
+                        <a href="https://earthkey.substack.com/?utm_source=earthkey_lp" target="_blank"
+                            rel="noopener noreferrer" class="channel-card channel-card-main">
+                            <span class="channel-icon">📥</span>
+                            <h4>Substack</h4>
+                            <p>メールで届く本編。現場の観察と、AIを学ぶ過程を書いています</p>
+                            <span class="channel-cta">無料で読む →</span>
                         </a>
                         <a href="https://x.com/EarthGigantea" target="_blank" rel="noopener noreferrer"
                             class="channel-card">
                             <span class="channel-icon">𝕏</span>
-                            <h4>X (Twitter)</h4>
-                            <p>日々のAI実践・医療情報を発信</p>
+                            <h4>X</h4>
+                            <p>日々の観察と、AIを試した記録</p>
                         </a>
-                        <a href="https://www.aipictors.com/users/EarthKey" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.youtube.com/@CureRain" target="_blank" rel="noopener noreferrer"
                             class="channel-card">
-                            <span class="channel-icon">🎨</span>
-                            <h4>AI Art</h4>
-                            <p>Stable Diffusionで生成した作品</p>
-                        </a>
-                        <a href="https://earthkey.substack.com/?utm_campaign=profile_chips" target="_blank"
-                            rel="noopener noreferrer" class="channel-card">
-                            <span class="channel-icon">📥</span>
-                            <h4>Substack</h4>
-                            <p>自由なSNSがここに</p>
+                            <span class="channel-icon">▶</span>
+                            <h4>YouTube</h4>
+                            <p>AI薬剤師と学ぶ、動画とポッドキャスト</p>
                         </a>
                     </div>
+
+                    <div class="channel-video">
+                        <p class="channel-video-label">YouTubeの新しい動画</p>
+                        <div class="channel-video-frame">
+                            <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUZJxhrImPZKKjtUGoapUoYg"
+                                title="アースキー AI薬剤師と学ぶ（YouTube）の新しい動画" loading="lazy"
+                                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <p class="channel-others">
+                        <span class="channel-others-label">ほかの場所</span>
+                        <a href="https://note.com/rain_cure" target="_blank" rel="noopener noreferrer">note</a>
+                        <a href="https://open.spotify.com/show/7LGLjfiuN0KRHUEuDtuksG" target="_blank"
+                            rel="noopener noreferrer">Podcast（Spotify）</a>
+                        <a href="https://www.instagram.com/earthkey_ph_blogger/" target="_blank"
+                            rel="noopener noreferrer">Instagram</a>
+                        <a href="https://www.threads.com/@earthkey_ph_blogger" target="_blank"
+                            rel="noopener noreferrer">Threads</a>
+                    </p>
                 </section>
 
                 <!-- Works -->
                 <section id="works" class="section container">
                     <h3 class="text-center mb-8 section-header-styled">Works</h3>
-                    
-                    <!-- クリプトニンジャAI創作スターターキット（メイン固定・赤で強調） -->
-                    <div class="card works-card works-card-featured" style="margin-bottom: 24px;">
-                        <div class="works-inner">
-                            <div class="works-text">
-                                <p class="works-tag works-tag-featured">🥷 AI創作教材</p>
-                                <h4>クリプトニンジャ はじめてのAIイラスト</h4>
-                                <p>クリプトニンジャが好きで、AIイラストを描いてみたい方へ。</p>
-                                <p>キャラクターの外見辞書を使い、静止画用の自然言語プロンプトを作るスキル付き。新教材は準備中です。既存購入者には追加購入なしで提供する予定です。</p>
-                                <a href="go/brain/" target="_blank" rel="noopener noreferrer"
-                                    class="works-link works-link-featured">既存教材を見る →</a>
-                            </div>
-                            <div class="works-thumb">
-                                <a href="go/brain/" target="_blank" rel="noopener noreferrer">
-                                    <img src="https://image.brain-market.com/store/a41796a7cae3990294eab66db1f5a110.png"
-                                        alt="既存教材・クリプトニンジャAI創作スターターキットの表紙">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- トリッカフラワー -->
                     <div class="card works-card" style="margin-bottom: 24px;">
                         <div class="works-inner">
@@ -166,6 +154,19 @@
                                     <img src="assets/koka-stamp/xiaolan_loop.gif" loading="lazy" alt="甲賀のシャオランのアニメーションスタンプ">
                                     <img src="assets/koka-stamp/nemu_loop.gif" loading="lazy" alt="甲賀のネムのアニメーションスタンプ">
                                 </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Art（2026-10-28 発信チャンネルから移設） -->
+                    <div class="card works-card" style="margin-bottom: 24px;">
+                        <div class="works-inner">
+                            <div class="works-text">
+                                <p class="works-tag">🎨 AI Art</p>
+                                <h4>Stable Diffusionで描いた作品集</h4>
+                                <p>ローカルの画像生成で描いたイラストを、aipictorsにまとめています。</p>
+                                <a href="https://www.aipictors.com/users/EarthKey" target="_blank" rel="noopener noreferrer"
+                                    class="works-link">aipictorsで見る →</a>
                             </div>
                         </div>
                     </div>
