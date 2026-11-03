@@ -773,6 +773,25 @@ section[id] {
     background: var(--forest-800);
 }
 
+/* 縦9:16の自己紹介動画。幅360pxで中央、スマホでは画面幅いっぱい。
+   表記(22px)が読める大きさを保つため横長の箱には入れない */
+.channel-video-intro {
+    max-width: 360px;
+}
+
+.channel-video-frame-vertical {
+    aspect-ratio: 9 / 16;
+}
+
+.channel-video-frame video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: var(--forest-800);
+}
+
 .channel-video-frame iframe {
     position: absolute;
     inset: 0;
