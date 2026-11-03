@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>『ボアリング戦略』の予約ページへ | アースキー</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>" />
+    <link rel="stylesheet" href="../../../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .go-wrap { min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .go-inner { background: rgba(255, 255, 255, .9); border: 1px solid rgba(0, 0, 0, .12); border-radius: 14px; padding: 28px 24px; max-width: 560px; }
+        .go-inner p { margin: 10px 0; }
+        .go-sub { font-size: .88rem; opacity: .75; }
+    </style>
+    <script src="config.js"></script>
+</head>
+
+<body>
+    <div class="forest-bg">
+        <main class="page-content">
+            <div class="page-sections">
+                <section class="section container go-wrap">
+                    <div class="go-inner">
+                        <p id="msg">『ボアリング戦略』の予約ページへ移動しています…</p>
+                        <p class="go-sub" id="sub">自動で切り替わらない場合は、下のボタンを押してください。</p>
+                        <p style="margin-top:18px;">
+                            <a href="#" class="btn-primary" id="go-link" rel="noopener noreferrer">Amazonで予約する →</a>
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <footer class="footer">
+                <p><a href="../../../index.html">Home</a> | <a href="../../../legal/tokutei.html">特定商取引法に基づく表記</a> | © EarthKey | AI Pharmacist × DAO</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // 購入用の入口（ショート・プロフィール・告知文）。飛び先は buy/config.js の1か所だけで管理する。
+        // BOOK2_BUY_URL が空のあいだ（KDPの審査中でASIN未確定）は転送せず「準備中」を出す。
+        // 流入元はパスで分ける（Web Analytics のページ別集計で数えるため）: /go/book2/buy/ = プロフィール・告知文・概要欄など
+        var url = window.BOOK2_BUY_URL || '';
+        var link = document.getElementById('go-link');
+        if (url) {
+            link.href = url;
+            setTimeout(function () { window.location.replace(url); }, 900);
+        } else {
+            document.getElementById('msg').textContent = '『ボアリング戦略』は2026年11月22日発売予定です。予約ページを準備しています。';
+            document.getElementById('sub').textContent = '予約が始まったら、このページから移動できるようになります。';
+            link.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
