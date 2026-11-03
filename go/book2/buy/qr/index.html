@@ -18,6 +18,7 @@
         .go-sub { font-size: .88rem; opacity: .75; }
     </style>
     <script src="../config.js"></script>
+    <script src="../../../../assets/material-tracking.js" defer></script>
 </head>
 
 <body>
@@ -48,7 +49,11 @@
         var link = document.getElementById('go-link');
         if (url) {
             link.href = url;
-            setTimeout(function () { window.location.replace(url); }, 900);
+            // 計測の発行は転送の直前（defer の material-tracking.js が受け手を登録した後）。/go/brain/ と同じ順
+            setTimeout(function () {
+                window.dispatchEvent(new CustomEvent('rondo-brain-outbound', { detail: 'kindle-boring' }));
+                window.location.replace(url);
+            }, 900);
         } else {
             document.getElementById('msg').textContent = '『ボアリング戦略』は2026年11月22日発売予定です。予約ページを準備しています。';
             document.getElementById('sub').textContent = '予約が始まったら、このページから移動できるようになります。';

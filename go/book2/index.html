@@ -17,6 +17,7 @@
         .go-inner p { margin: 10px 0; }
         .go-sub { font-size: .88rem; opacity: .75; }
     </style>
+    <script src="../../assets/material-tracking.js" defer></script>
 </head>
 
 <body>
@@ -43,7 +44,11 @@
         // 計測のためのワンクッション（/go/brain/ と同じ設計）。302だとHTMLが描画されず
         // Cloudflare Web Analytics が数えられないため、このページを1枚挟んで0.9秒後に転送する。
         // /go/book2/ ＝ 巻末の導線。ここのページビューが「本経由のSubstack登録導線」の分母。
-        setTimeout(function () { window.location.replace('https://earthkey.substack.com/?utm_source=book2&utm_medium=epub'); }, 900);
+        // 計測の発行は転送の直前（defer の material-tracking.js が受け手を登録した後）。/go/brain/ と同じ順
+        setTimeout(function () {
+            window.dispatchEvent(new CustomEvent('rondo-brain-outbound', { detail: 'book2-substack' }));
+            window.location.replace('https://earthkey.substack.com/?utm_source=book2&utm_medium=epub');
+        }, 900);
     </script>
 </body>
 
