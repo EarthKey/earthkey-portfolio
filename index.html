@@ -23,6 +23,7 @@
     <!-- 「TOPへ戻る」をスクロール後にだけ出すための印。JS無効なら印が立たず、従来どおり常時表示になる。 -->
     <script>document.documentElement.dataset.scrollui = "1";</script>
     <script src="assets/material-tracking.js" defer></script>
+    <script src="assets/short-diagrams.js?v=3" defer></script>
 </head>
 
 <body id="top">
@@ -51,9 +52,9 @@
             <div class="page-sections">
 
                 <!-- Hero -->
-                <section class="hero-section">
+                <section class="hero-section hero-section--home">
                     <img src="./assets/icons/AI_DAO_header2026.jpeg" alt="薬剤師×AI×DAO"
-                        style="width:100%;max-width:720px;border-radius:12px;margin-bottom:1.5rem;" />
+                        style="width:100%;max-width:720px;border-radius:12px;" />
                     <h2>医療 × AI × DAO の交差点から発信する</h2>
                     <div class="hero-badges">
                         <span class="hero-badge">💊 現役病院薬剤師</span>
@@ -61,6 +62,26 @@
                         <span class="hero-badge">🥷 NinjaDAO</span>
                     </div>
                     <p>現場の困りごとを観察して言語化する、病院薬剤師です。<br>「明日ひとつだけ安全に試せる」AIの使い方を、Substack・X・YouTubeで届けています。</p>
+                    <section class="video-resources" id="video-resources" aria-labelledby="video-resources-title">
+                        <h3 id="video-resources-title">動画の図解・制作の記録</h3>
+                        <ul class="video-resources-list" id="latest-short-diagrams">
+                            <li>
+                                <a href="https://substack.com/@earthkey/note/c-386996189">
+                                    <span class="video-resources-date"><time datetime="2026-11-16">11月16日</time> 朝</span>
+                                    <span class="video-resources-name">医療AIに何を頼む？ 今日は下書き一つに絞る</span>
+                                    <span class="video-resources-action">図解を見る <span aria-hidden="true">→</span></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://substack.com/@earthkey/note/c-386996664">
+                                    <span class="video-resources-date"><time datetime="2026-11-16">11月16日</time> 昼</span>
+                                    <span class="video-resources-name">伸びない日の物差しを一つに｜ボアリング戦略</span>
+                                    <span class="video-resources-action">図解を見る <span aria-hidden="true">→</span></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <a class="video-resources-archive-link" href="./short-diagrams/">過去の図解一覧を見る <span aria-hidden="true">→</span></a>
+                    </section>
                     <div class="hero-actions">
                         <a href="https://earthkey.substack.com/?utm_source=earthkey_lp" target="_blank"
                             rel="noopener noreferrer" class="btn-primary">📥 Substackで無料で読む</a>
